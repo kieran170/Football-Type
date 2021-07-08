@@ -3,8 +3,9 @@ import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../context';
 import Header from '../HeaderComp/Index'
 import * as api from '../../api'
-import { dataApi, lookup,standings, table} from '../../types/index'
-import Table from './Table/Index'
+import { dataApi, lookup, standings, Itable } from '../../types/index'
+import LeagueTable from './LeagueTable/Index'
+import GoalScorerTable from './GoalScorerTable/Index'
 
 
 
@@ -13,7 +14,7 @@ export default function Index() {
     const country = userContext?.state.country
     const [leagueNum, setLeagueNum] = useState('')
     const [data, setData] = useState<null | dataApi>(null)
-    const [teams, setTeams] = useState<[] | table[]>([])
+    const [teams, setTeams] = useState<[] | Itable[]>([])
 
 
 
@@ -55,8 +56,14 @@ export default function Index() {
                 <Grid item md={12} style={{ textAlign: 'center' }}>
                     <Typography variant='h1'>{data?.competition.name.toUpperCase()}</Typography>
                 </Grid>
-                <Grid>
-                <Table data={teams} />
+                <Grid container md={12}>
+                    <Grid container md={6}>
+                        <LeagueTable data={teams} />
+                    </Grid>
+                    <Grid md={6}>
+                        <GoalScorerTable data={teams} />
+                    </Grid>
+
                 </Grid>
             </Grid>
         </Grid>

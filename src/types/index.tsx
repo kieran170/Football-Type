@@ -10,7 +10,7 @@ export interface Iteam {
 
 }
 
-export interface table {
+export interface Itable {
     position: number,
     team: Iteam,
     playedGames: number,
@@ -46,7 +46,7 @@ export interface dataApi {
             stage: string,
             type: string,
             group: null,
-            table: table[],
+            table: Itable[],
         }
     ]
 }
@@ -59,5 +59,5 @@ export interface standings {
     stage: string,
     type: string,
     group: null,
-    table: table[],
+    table: Itable[],
 }
