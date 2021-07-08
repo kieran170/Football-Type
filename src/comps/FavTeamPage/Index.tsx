@@ -3,7 +3,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../context';
 import Header from '../HeaderComp/Index'
 import * as api from '../../api'
-import { dataApi, lookup, table, standings, Iteam } from '../../types/index'
+import { dataApi, lookup,standings, table} from '../../types/index'
+
 
 
 export default function Index() {
@@ -11,7 +12,9 @@ export default function Index() {
     const country = userContext?.state.country
     const [leagueNum, setLeagueNum] = useState('')
     const [data, setData] = useState<null | dataApi>(null)
-    const [teams, setTeams] = useState<null | Iteam[]>(null)
+    const [teams, setTeams] = useState<[] | table[]>([])
+
+
 
     useEffect(() => {
         const lookup = (country: string | null | undefined) => {
@@ -33,12 +36,12 @@ export default function Index() {
                 .getLeagues(leagueNum)
                 .then((res) => {
                     setData(res)
-                    const teamsData: Iteam[] = res.standings.map((teamsData: standings) => {
+                    const teamsDataArr = res.standings.map((teamsData: standings) => {
                         return teamsData.table.map((team) => {
                             return team
                         })
                     })
-                    setTeams(teamsData)
+                    setTeams(teamsDataArr[0])
                 })
         }
         fetchData(leagueNum)
@@ -46,13 +49,17 @@ export default function Index() {
 
     return (
         <Grid container md={12} style={{ backgroundColor: '#d2d0d7', height: '100hv' }}>
-            {console.log(teams)}
             <Grid container md={12}>
                 <Header />
                 <Grid item md={12} style={{ textAlign: 'center' }}>
                     <Typography variant='h1'>{data?.competition.name.toUpperCase()}</Typography>
                 </Grid>
                 <Grid>
+                {teams.map((item) => {
+                    return (
+                        <Typography>{item.team.name}</Typography>
+                    )
+                })}
                 </Grid>
             </Grid>
             {/* <pre>
