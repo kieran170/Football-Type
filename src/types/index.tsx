@@ -3,16 +3,16 @@ interface area {
     name: string,
 }
 
-interface team {
+export interface Iteam {
     id: number,
     name: string,
     crestUrl: string,
 
 }
 
-interface table {
+export interface table {
     position: number,
-    team: team,
+    team: Iteam,
     playedGames: number,
     form: null,
     won: number,
@@ -45,8 +45,19 @@ export interface dataApi {
         {
             stage: string,
             type: string,
-            group: null, 
-            table: table [],
+            group: null,
+            table: table[],
         }
     ]
+}
+
+export interface lookup {
+    [key: string]: string
+}
+
+export interface standings {
+    stage: string,
+    type: string,
+    group: null,
+    table: table[],
 }
