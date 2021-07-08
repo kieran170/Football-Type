@@ -1,5 +1,7 @@
 import React from 'react';
 import { Grid, Typography} from '@material-ui/core';
+import { Link} from "react-router-dom";
+
 
 export default function Index() {
     const links = ['Home', 'Sports', 'Scores', 'Video', 'TV', 'Sky Bet', 'Games']
@@ -10,7 +12,9 @@ export default function Index() {
             {links.map((link) => {
                 return (
                 <Grid item md={1}>
-                <Typography>{link}</Typography>
+                    <Link style={{textDecoration: 'none', color: 'black'}} to='/home'>
+                        <Typography>{link}</Typography>
+                    </Link>
                 </Grid>
                 )
             })}

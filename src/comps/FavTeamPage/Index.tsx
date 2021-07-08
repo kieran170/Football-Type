@@ -44,7 +44,7 @@ export default function Index() {
         <Grid container md={12}>
             <Header />
             <Grid item md={12} style={{textAlign: 'center'}}>
-                <Typography variant='h1'>{data?.competition.name}</Typography>
+                <Typography variant='h1'>{data?.competition.name.toUpperCase()}</Typography>
             </Grid>
             <pre>{JSON.stringify(data, null, 2)}</pre>
             {console.log(data)}
