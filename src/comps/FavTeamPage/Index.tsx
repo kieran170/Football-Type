@@ -4,6 +4,7 @@ import { UserContext } from '../../context';
 import Header from '../HeaderComp/Index'
 import * as api from '../../api'
 import { dataApi, lookup,standings, table} from '../../types/index'
+import Table from './Table/Index'
 
 
 
@@ -55,16 +56,9 @@ export default function Index() {
                     <Typography variant='h1'>{data?.competition.name.toUpperCase()}</Typography>
                 </Grid>
                 <Grid>
-                {teams.map((item) => {
-                    return (
-                        <Typography>{item.team.name}</Typography>
-                    )
-                })}
+                <Table data={teams} />
                 </Grid>
             </Grid>
-            {/* <pre>
-                {JSON.stringify(teams, null, 2)}
-            </pre> */}
         </Grid>
     )
 }
