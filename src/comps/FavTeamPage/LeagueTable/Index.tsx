@@ -1,6 +1,7 @@
 import React from 'react'
 import { Itable } from '../../../types/index'
 import { makeStyles, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core/';
+import { Link } from 'react-router-dom';
 
 
 interface IProps {
@@ -11,6 +12,9 @@ const useStyles = makeStyles({
     table: {
         minWidth: 450,
     },
+    text: {
+        textAlign: 'center'
+    }
 });
 
 export default function Index(props: IProps) {
@@ -18,18 +22,18 @@ export default function Index(props: IProps) {
     const data = props.data
     return (
         <TableContainer component={Paper}>
-            <Typography variant='h4' style={{textAlign:'center'}}>League Table</Typography>
+            <Typography variant='h4' style={{ textAlign: 'center' }}>League Table</Typography>
             <Table className={classes.table} aria-label="simple table">
                 <TableHead>
                     <TableRow>
                         <TableCell>Position</TableCell>
                         <TableCell >Team</TableCell>
-                        <TableCell style={{textAlign: 'center'}}>Played</TableCell>
-                        <TableCell style={{textAlign: 'center'}}>Won</TableCell>
-                        <TableCell style={{textAlign: 'center'}}>Drawn</TableCell>
-                        <TableCell style={{textAlign: 'center'}}>Lost</TableCell>
-                        <TableCell style={{textAlign: 'center'}}>Goal Difference</TableCell>
-                        <TableCell style={{textAlign: 'center'}} >Points</TableCell>
+                        <TableCell className={classes.text}>Played</TableCell>
+                        <TableCell className={classes.text}>Won</TableCell>
+                        <TableCell className={classes.text}>Drawn</TableCell>
+                        <TableCell className={classes.text}>Lost</TableCell>
+                        <TableCell className={classes.text}>Goal Difference</TableCell>
+                        <TableCell className={classes.text} >Points</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -38,13 +42,15 @@ export default function Index(props: IProps) {
                             <TableCell component="th" scope="row">
                                 {item.position}
                             </TableCell>
-                            <TableCell ><img style={{ height: '20px' }} src={item.team.crestUrl} alt='hello' />{item.team.name}</TableCell>
-                            <TableCell style={{textAlign: 'center'}}>{item.playedGames}</TableCell>
-                            <TableCell style={{textAlign: 'center'}} >{item.won}</TableCell>
-                            <TableCell style={{textAlign: 'center'}}>{item.draw}</TableCell>
-                            <TableCell style={{textAlign: 'center'}}>{item.lost}</TableCell>
-                            <TableCell style={{textAlign: 'center'}}>{item.goalDifference}</TableCell>
-                            <TableCell style={{textAlign: 'center'}}>{item.points}</TableCell>
+                            <Link style={{ textDecoration: 'none' }} to={`/teams/${item.team.id}`}>
+                                <TableCell ><img style={{ height: '20px' }} src={item.team.crestUrl} alt='team-name' />{item.team.name}</TableCell>
+                            </Link>
+                            <TableCell style={{ textAlign: 'center' }}>{item.playedGames}</TableCell>
+                            <TableCell style={{ textAlign: 'center' }} >{item.won}</TableCell>
+                            <TableCell style={{ textAlign: 'center' }}>{item.draw}</TableCell>
+                            <TableCell style={{ textAlign: 'center' }}>{item.lost}</TableCell>
+                            <TableCell style={{ textAlign: 'center' }}>{item.goalDifference}</TableCell>
+                            <TableCell style={{ textAlign: 'center' }}>{item.points}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
