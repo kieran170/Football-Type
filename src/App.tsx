@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Redirect, Route, Switch, } from 'react-router-
 import Home from './comps/Home/Index'
 import LoggedInHome from './comps/LoggedInHome/Index'
 import FavTeamPage from './comps/FavTeamPage/Index'
+import MyAccount from './comps/MyAccount/Index'
 import { UserContextProvider } from './context';
 
 export default function App() {
@@ -13,6 +14,7 @@ export default function App() {
           <Route exact path="/" component={Home} />
           <Route path="/home" component={LoggedInHome} />
           <Route path="/favorite-team" component={FavTeamPage} />
+          <Route path="/account" component={MyAccount} />
           <Redirect from="*" to="/" />
         </Switch>
       </Router>

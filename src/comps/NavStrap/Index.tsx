@@ -1,18 +1,36 @@
 import React from 'react';
-import { Grid, Typography} from '@material-ui/core';
+import { Grid, Typography, makeStyles} from '@material-ui/core';
 import { Link} from "react-router-dom";
 
 
+const useStyles = makeStyles({
+    link: {
+        textDecoration: 'none',
+        color: 'black',
+        textAlign: 'center'
+    },
+    linkCon: {
+        margin: '9px',
+        padding: '9px',
+        borderRadius: '15px',
+        '&:hover': {
+            backgroundColor: 'rgb(210, 208, 215)'
+        }
+    }
+});
+
 export default function Index() {
+
+    const classes = useStyles()
     const links = ['Home', 'Sports', 'Scores', 'Video', 'TV', 'Sky Bet', 'Games']
     return (
-        <Grid container md={12} style={{backgroundColor: '#dedde2'}}>
+        <Grid container md={12} style={{backgroundColor: '#dedde2', padding: '8px'}}>
             <Grid container md={1}></Grid>
             <Grid container md ={8}>
             {links.map((link) => {
                 return (
-                <Grid item md={1}>
-                    <Link style={{textDecoration: 'none', color: 'black'}} to='/home'>
+                <Grid item md={1} className={classes.linkCon}>
+                    <Link className={classes.link} to='/home'>
                         <Typography>{link}</Typography>
                     </Link>
                 </Grid>

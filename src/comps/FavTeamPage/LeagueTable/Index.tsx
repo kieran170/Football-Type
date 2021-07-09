@@ -1,6 +1,6 @@
 import React from 'react'
 import { Itable } from '../../../types/index'
-import { makeStyles, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core/';
+import { makeStyles, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core/';
 
 
 interface IProps {
@@ -9,7 +9,7 @@ interface IProps {
 
 const useStyles = makeStyles({
     table: {
-        minWidth: 650,
+        minWidth: 450,
     },
 });
 
@@ -18,14 +18,19 @@ export default function Index(props: IProps) {
     const data = props.data
     return (
         <TableContainer component={Paper}>
+            {console.log(data)}
+            <Typography variant='h4' style={{textAlign:'center'}}>League Table</Typography>
             <Table className={classes.table} aria-label="simple table">
                 <TableHead>
                     <TableRow>
                         <TableCell>Position</TableCell>
-                        <TableCell>Team</TableCell>
-                        <TableCell >Played</TableCell>
-                        <TableCell >Goal Difference</TableCell>
-                        <TableCell >Points</TableCell>
+                        <TableCell >Team</TableCell>
+                        <TableCell style={{textAlign: 'center'}}>Played</TableCell>
+                        <TableCell style={{textAlign: 'center'}}>Won</TableCell>
+                        <TableCell style={{textAlign: 'center'}}>Drawn</TableCell>
+                        <TableCell style={{textAlign: 'center'}}>Lost</TableCell>
+                        <TableCell style={{textAlign: 'center'}}>Goal Difference</TableCell>
+                        <TableCell style={{textAlign: 'center'}} >Points</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -34,10 +39,13 @@ export default function Index(props: IProps) {
                             <TableCell component="th" scope="row">
                                 {item.position}
                             </TableCell>
-                            <TableCell><img style={{ height: '20px' }} src={item.team.crestUrl} alt='hello' />{item.team.name}</TableCell>
-                            <TableCell >{item.playedGames}</TableCell>
-                            <TableCell>{item.goalDifference}</TableCell>
-                            <TableCell>{item.points}</TableCell>
+                            <TableCell ><img style={{ height: '20px' }} src={item.team.crestUrl} alt='hello' />{item.team.name}</TableCell>
+                            <TableCell style={{textAlign: 'center'}}>{item.playedGames}</TableCell>
+                            <TableCell style={{textAlign: 'center'}} >{item.won}</TableCell>
+                            <TableCell style={{textAlign: 'center'}}>{item.draw}</TableCell>
+                            <TableCell style={{textAlign: 'center'}}>{item.lost}</TableCell>
+                            <TableCell style={{textAlign: 'center'}}>{item.goalDifference}</TableCell>
+                            <TableCell style={{textAlign: 'center'}}>{item.points}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>

@@ -105,6 +105,11 @@ export default function Index(): JSX.Element {
                                                 <MenuItem value={'england'}>England</MenuItem>
                                                 <MenuItem value={'spain'}>Spain</MenuItem>
                                                 <MenuItem value={'italy'}>Italy</MenuItem>
+                                                <MenuItem value={'germany'}>Germany</MenuItem>
+                                                <MenuItem value={'france'}>France</MenuItem>
+                                                <MenuItem value={'brazil'}>Brazil</MenuItem>
+                                                <MenuItem value={'portugal'}>Portugal</MenuItem>
+
                                             </Select>
                                         </FormControl>
                                     </Grid>
