@@ -6,6 +6,7 @@ import * as api from '../../api'
 import { dataApi, lookup, standings, Itable } from '../../types/index'
 import LeagueTable from './LeagueTable/Index'
 import GoalScorerTable from './GoalScorerTable/Index'
+import Footer from '../Footer/Index'
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -21,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Index() {
     const userContext = useContext(UserContext)
-    const country = userContext?.state.country
+    const country = userContext?.state.country?.toString()
     const [leagueNum, setLeagueNum] = useState('')
     const [data, setData] = useState<null | dataApi>(null)
     const [teams, setTeams] = useState<[] | Itable[]>([])
@@ -30,7 +31,7 @@ export default function Index() {
 
 
     useEffect(() => {
-        const lookup = (country: string | null | undefined) => {
+        const lookup = (country: string | undefined) => {
             if (typeof country === 'string') {
                 const cLookup: lookup = {
                     england: '2021',
@@ -71,6 +72,7 @@ export default function Index() {
     }
 
     return (
+        <>
         <Grid container md={12} style={{ backgroundColor: '#d2d0d7', height: '100hv' }}>
             <Grid container md={12}>
                 <Header />
@@ -106,5 +108,7 @@ export default function Index() {
                 </Grid>
             </Grid>
         </Grid>
+        <Footer />
+        </>
     )
 }

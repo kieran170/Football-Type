@@ -19,7 +19,6 @@ const useStyles = makeStyles({
 export default function Index(props: IProps) {
 
     const classes = useStyles();
-    const data = props.data;
     const country: string|undefined = props.country?.toString();
     const [scorers, setScorers] =useState<[] | scorersApi[] >([])
 

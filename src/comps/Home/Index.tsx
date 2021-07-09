@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
-import { Grid, Typography, TextField, Button, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core'
+import { Grid, Typography, TextField, Button, FormControl, Select, MenuItem } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 import { UserContext } from '../../context'
 import { useHistory } from "react-router-dom";
@@ -81,9 +81,8 @@ export default function Index(): JSX.Element {
     }, [userContext?.state.logged, history])
 
     return (
-        <Grid style={{ height: '100%', backgroundColor: '#3c3c3c' }}>
+        <Grid style={{ height: '100vh', backgroundColor: '#3c3c3c' }}>
             <Grid style={{ display: 'flex', justifyContent: 'center' }}>
-                <Typography style={{ color: 'white' }} variant='h1'>Football</Typography>
             </Grid>
             {!logged ?
                 <Grid container md={12} style={{ display: 'flex', justifyContent: 'center' }}>

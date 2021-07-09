@@ -22,14 +22,23 @@ const useStyles = makeStyles({
 export default function Index() {
 
     const classes = useStyles()
-    const links = ['Home', 'Sports', 'Scores', 'Video', 'TV', 'Sky Bet', 'Games']
+    const links = ['Home', 'Leagues', 'Favorite Club']
     return (
         <Grid container md={12} style={{backgroundColor: '#dedde2', padding: '8px'}}>
             <Grid container md={1}></Grid>
             <Grid container md ={8}>
             {links.map((link) => {
+                if (link === 'Leagues') {
+                    return (
+                        <Grid item md={1} className={classes.linkCon}>
+                            <Link className={classes.link} to='/favorite-team'>
+                                <Typography>{link}</Typography>
+                            </Link>
+                        </Grid>
+                    )
+                }
                 return (
-                <Grid item md={1} className={classes.linkCon}>
+                <Grid item md={2} className={classes.linkCon}>
                     <Link className={classes.link} to='/home'>
                         <Typography>{link}</Typography>
                     </Link>

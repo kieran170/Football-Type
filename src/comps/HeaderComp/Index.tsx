@@ -29,10 +29,14 @@ export default function Index() {
                 <Grid item md={3}></Grid>
                 <Grid container md={5} style={{display: 'inline-flex'}}>
                     <Grid item md={4}>
+                        <a style={{textDecoration: 'none'}} href='https://www.skysports.com/get-sky'>
                         <Typography style={{color: 'white', fontWeight: 'bold'}} >Get Sky Sports</Typography>
+                        </a>
                     </Grid>
                     <Grid item md={4}>
+                        <Link style={{textDecoration: 'none'}} to='/account'>
                         <Typography style={{color: 'white', fontWeight: 'bold'}}>My Account</Typography>
+                        </Link>
                     </Grid>
                     <Grid item md={4}>
                         <Link style={{textDecoration: 'none'}} to='/favorite-team'>

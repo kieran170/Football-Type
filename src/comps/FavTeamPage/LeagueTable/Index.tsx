@@ -18,7 +18,6 @@ export default function Index(props: IProps) {
     const data = props.data
     return (
         <TableContainer component={Paper}>
-            {console.log(data)}
             <Typography variant='h4' style={{textAlign:'center'}}>League Table</Typography>
             <Table className={classes.table} aria-label="simple table">
                 <TableHead>
