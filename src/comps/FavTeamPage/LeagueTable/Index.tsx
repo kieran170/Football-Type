@@ -14,10 +14,7 @@ const useStyles = makeStyles({
 });
 
 export default function Index(props: IProps) {
-
     const classes = useStyles();
-
-
     const data = props.data
     return (
         <TableContainer component={Paper}>
@@ -26,9 +23,9 @@ export default function Index(props: IProps) {
                     <TableRow>
                         <TableCell>Position</TableCell>
                         <TableCell>Team</TableCell>
-                        <TableCell align="right">Played</TableCell>
-                        <TableCell align="right">Goal Difference</TableCell>
-                        <TableCell align="right">Points</TableCell>
+                        <TableCell >Played</TableCell>
+                        <TableCell >Goal Difference</TableCell>
+                        <TableCell >Points</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -37,8 +34,8 @@ export default function Index(props: IProps) {
                             <TableCell component="th" scope="row">
                                 {item.position}
                             </TableCell>
-                            <TableCell>{item.team.name}</TableCell>
-                            <TableCell>{item.playedGames}</TableCell>
+                            <TableCell><img style={{ height: '20px' }} src={item.team.crestUrl} alt='hello' />{item.team.name}</TableCell>
+                            <TableCell >{item.playedGames}</TableCell>
                             <TableCell>{item.goalDifference}</TableCell>
                             <TableCell>{item.points}</TableCell>
                         </TableRow>
