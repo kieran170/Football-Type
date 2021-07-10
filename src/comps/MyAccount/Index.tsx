@@ -9,7 +9,7 @@ export default function Index() {
     const userContext = useContext(UserContext)
 
     const handleChanges = () => {
-
+        console.log('Saved Changes')
     }
 
     return (
@@ -37,7 +37,9 @@ export default function Index() {
                     <Button onChange={handleChanges} variant="contained" color="primary" component="span">Save</Button>
                 </Grid>
             </Grid>
-            <Footer />
+            <Grid container md={12} style={{position: 'fixed', bottom: 0}}>
+                <Footer />
+            </Grid>
         </>
     )
 }

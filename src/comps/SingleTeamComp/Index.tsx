@@ -71,7 +71,7 @@ export default function Index(props: IProps) {
                     {data?.squad.map((player) => {
                         if (player.position) {
                             return (
-                                <Grid item md={12} style={{display: 'inline-flex'}}>
+                                <Grid item md={12} key={player.id} style={{display: 'inline-flex'}}>
                                     <Grid item md={2}>
                                         <Typography>{player.position}</Typography>
                                     </Grid>

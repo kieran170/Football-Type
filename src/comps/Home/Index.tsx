@@ -132,7 +132,7 @@ export default function Index(): JSX.Element {
                             )
                         })}
                         <Button onClick={handleClick} style={{ marginTop: '25px', backgroundColor: 'white' }} variant='outlined'>Log In</Button>
-                        <Grid md={12}>
+                        <Grid item md={12}>
                             {error && <Typography>Please fill all fields</Typography>}
                             {emailError && <Typography>Enter a valid email</Typography>}
                         </Grid>

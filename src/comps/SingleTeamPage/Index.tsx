@@ -41,7 +41,7 @@ export default function Index() {
                 <Typography variant='h2'>{data?.shortName.toUpperCase()}</Typography>
                 <img style={{ height: '50px' }} src={data?.crestUrl} alt='club-badge' />
             </Grid>
-            <Grid style={{ display: 'flex', justifyContent: 'flex-end' }} item md={12}>
+            <Grid style={{ display: 'flex', justifyContent: 'flex-end', paddingRight: '20px' }} item md={12}>
                 <Button onClick={handleClick} variant='outlined'>Save as favorite team</Button>
             </Grid>
             <Grid item md={12} style={{paddingLeft: '8px'}}>
@@ -70,7 +70,7 @@ export default function Index() {
                 {data?.squad.map((player) => {
                     if (player.position) {
                         return (
-                            <Grid item md={12} style={{display: 'inline-flex'}}>
+                            <Grid item md={12} key={player.id} style={{display: 'inline-flex'}}>
                                 <Grid item md={2}>
                                     <Typography>{player.position}</Typography>
                                 </Grid>
