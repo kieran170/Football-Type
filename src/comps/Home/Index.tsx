@@ -18,6 +18,7 @@ export default function Index(): JSX.Element {
     const userContext = useContext(UserContext);
     const classes = useStyles();
     const [error, setError] = useState<boolean>(false);
+    const [emailError, setEmailError] = useState<boolean>();
     const [logged, setLogged] = useState<boolean>(false);
     let history = useHistory();
     const fields = [
@@ -62,9 +63,17 @@ export default function Index(): JSX.Element {
 
     const handleClick = () => {
         if (userContext?.state.fields.userName && userContext?.state.fields.password && userContext?.state.fields.email && userContext?.state.country) {
-            userContext?.dispatch({
-                type: 'LOG_IN'
-            })
+            const email = userContext?.state.fields.email
+            const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
+                if (regex.test(email) === true) {
+                    setEmailError(false)
+                    userContext?.dispatch({
+                        type: 'LOG_IN'
+                    })
+                } else {
+                    setEmailError(true)
+                    setError(false)
+            }
         }
         else {
             setError(true)
@@ -86,9 +95,9 @@ export default function Index(): JSX.Element {
             </Grid>
             {!logged ?
                 <Grid container md={12} style={{ display: 'flex', justifyContent: 'center' }}>
-                    <Grid container md={4} style={{ textAlign: 'center', padding: '35px 0 35px 0', backgroundColor: '#c3c3ca', borderRadius: '10px', justifyContent: 'center', marginTop: '5%' }}>
+                    <Grid container md={4} style={{ textAlign: 'center', padding: '35px 0 35px 0', backgroundColor: 'rgb(100 100 255)', borderRadius: '10px', justifyContent: 'center', marginTop: '5%' }}>
                         <Grid item md={12}>
-                            <Typography style={{ fontWeight: 1000 }} variant='h4'>WELCOME</Typography>
+                            <Typography style={{ fontWeight: 1000 }} variant='h3'>WELCOME</Typography>
                         </Grid>
                         {fields.map((field) => {
                             if (field.type === 'select') {
@@ -97,6 +106,7 @@ export default function Index(): JSX.Element {
                                         <FormControl variant="filled" className={classes.formControl}>
                                             <Typography>Pick your favorite league</Typography>
                                             <Select
+                                                style={{backgroundColor: 'white', borderRadius: '15px'}}
                                                 labelId="demo-simple-select-filled-label"
                                                 id="demo-simple-select-filled"
                                                 onChange={(e) => handleCountryChange(e)}
@@ -124,13 +134,14 @@ export default function Index(): JSX.Element {
                         <Button onClick={handleClick} style={{ marginTop: '25px', backgroundColor: 'white' }} variant='outlined'>Log In</Button>
                         <Grid md={12}>
                             {error && <Typography>Please fill all fields</Typography>}
+                            {emailError && <Typography>Enter a valid email</Typography>}
                         </Grid>
                     </Grid>
                 </Grid>
                 :
                 <>
                     <Grid md={12}>
-                        <Typography style={{ color: 'white', fontWeight: 1000, display: 'flex', justifyContent: 'center' }} variant='h1'>Welcome To Football</Typography>
+                        <Typography style={{ color: 'white', fontWeight: 1000, display: 'flex', justifyContent: 'center' }} variant='h2'>Welcome To Plant Football</Typography>
                     </Grid>
                     <Grid md={12}>
                         <Typography style={{ color: 'white', fontWeight: 1000, display: 'flex', justifyContent: 'center' }} variant='h1'>{userContext?.state.fields.userName}</Typography>
