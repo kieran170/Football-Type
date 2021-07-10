@@ -39,8 +39,8 @@ export default function Index() {
                             </Link>
                         </Grid>
                         <Grid item md={4}>
-                            <Link style={{ textDecoration: 'none' }} to='/favorite-team'>
-                                <Typography style={{ color: 'white', fontWeight: 'bold' }}>Favorite League</Typography>
+                            <Link style={{ textDecoration: 'none' }} to='/home'>
+                                <Typography style={{ color: 'white', fontWeight: 'bold' }}>Home</Typography>
                             </Link>
                         </Grid>
                     </Grid>
