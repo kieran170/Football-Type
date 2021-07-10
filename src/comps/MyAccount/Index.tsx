@@ -16,7 +16,8 @@ const useStyles = makeStyles({
     },
     passContainer: {
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        paddingTop: '30px'
     }
 });
 
