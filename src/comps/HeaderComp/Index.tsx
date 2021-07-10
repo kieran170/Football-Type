@@ -19,12 +19,12 @@ export default function Index() {
             <Grid style={{ height: '100px', display: 'flex' }} container md={12}>
                 <Grid container md={3} style={{ backgroundColor: '#15377c', justifyContent: 'flex-end', alignItems: 'center', paddingRight: '8px' }}>
                     <Grid>
-                        <Typography style={{ color: 'white', fontWeight: 'bold' }} variant='h3'>SKY</Typography>
+                        <Typography style={{ color: 'white', fontWeight: 'bold' }} variant='h3'>FOOTBALL</Typography>
                     </Grid>
                 </Grid>
                 <Grid container md={9} style={{ backgroundColor: '#d70202', justifyContent: 'flex-start', alignItems: 'center', paddingLeft: '8px' }}>
                     <Grid item md={2}>
-                        <Typography style={{ color: 'white', fontWeight: 'bold' }} variant='h4'>Sports</Typography>
+                        <Typography style={{ color: 'white', fontWeight: 'bold' }} variant='h4'>PLANET</Typography>
                     </Grid>
                     <Grid item md={3}></Grid>
                     <Grid container md={5} style={{ display: 'inline-flex' }}>

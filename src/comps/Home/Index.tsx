@@ -65,14 +65,14 @@ export default function Index(): JSX.Element {
         if (userContext?.state.fields.userName && userContext?.state.fields.password && userContext?.state.fields.email && userContext?.state.country) {
             const email = userContext?.state.fields.email
             const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
-                if (regex.test(email) === true) {
-                    setEmailError(false)
-                    userContext?.dispatch({
-                        type: 'LOG_IN'
-                    })
-                } else {
-                    setEmailError(true)
-                    setError(false)
+            if (regex.test(email) === true) {
+                setEmailError(false)
+                userContext?.dispatch({
+                    type: 'LOG_IN'
+                })
+            } else {
+                setEmailError(true)
+                setError(false)
             }
         }
         else {
@@ -106,7 +106,7 @@ export default function Index(): JSX.Element {
                                         <FormControl variant="filled" className={classes.formControl}>
                                             <Typography>Pick your favorite league</Typography>
                                             <Select
-                                                style={{backgroundColor: 'white', borderRadius: '15px'}}
+                                                style={{ backgroundColor: 'white', borderRadius: '15px' }}
                                                 labelId="demo-simple-select-filled-label"
                                                 id="demo-simple-select-filled"
                                                 onChange={(e) => handleCountryChange(e)}
@@ -141,7 +141,7 @@ export default function Index(): JSX.Element {
                 :
                 <>
                     <Grid md={12}>
-                        <Typography style={{ color: 'white', fontWeight: 1000, display: 'flex', justifyContent: 'center' }} variant='h2'>Welcome To Plant Football</Typography>
+                        <Typography style={{ color: 'white', fontWeight: 1000, display: 'flex', justifyContent: 'center' }} variant='h2'>Welcome To Football planet</Typography>
                     </Grid>
                     <Grid md={12}>
                         <Typography style={{ color: 'white', fontWeight: 1000, display: 'flex', justifyContent: 'center' }} variant='h1'>{userContext?.state.fields.userName}</Typography>
