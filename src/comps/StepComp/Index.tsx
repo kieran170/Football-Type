@@ -10,6 +10,9 @@ import { Link } from "react-router-dom";
 export default function Index() {
     return (
         <>
+            <Grid style={{ display: 'flex', justifyContent: 'center' }} container md={12}>
+                <Typography variant='h3'>No Favorite Team Picked</Typography>
+            </Grid>
             <Grid item md={12} style={{ margin: '40px 0 40px 0' }}>
                 <Typography>Please Select a Favorite Team <Link to='home'>Here</Link></Typography>
             </Grid>

@@ -16,6 +16,12 @@ const useStyles = makeStyles({
     },
     text: {
         alignItems: 'center'
+    },
+    textCenter: {
+        textAlign: 'center'
+    },
+    tableContainer: {
+        marginBottom: '30px'
     }
 });
 
@@ -39,8 +45,8 @@ export default function Index(props: IProps) {
 
     return (
         <>
-            <TableContainer component={Paper}>
-                <Typography variant='h4' className={classes.text}>Top Scorers</Typography>
+            <TableContainer component={Paper} className={classes.tableContainer}>
+                <Typography variant='h4' className={classes.textCenter}>Top Scorers</Typography>
                 <Table className={classes.table} aria-label="simple table">
                     <TableHead>
                         <TableRow>
