@@ -97,11 +97,11 @@ export default function Index() {
                             </Select>
                         </FormControl>
                     </Grid>
-                    <Grid container md={12}>
-                        <Grid container md={6}>
+                    <Grid container md={12} style={{display: 'flex', justifyContent: 'center'}}>
+                        <Grid container md={9}>
                             <LeagueTable data={teams} />
                         </Grid>
-                        <Grid md={6}>
+                        <Grid md={9} style={{paddingTop: '30px'}}>
                             <GoalScorerTable country={leagueNum} data={teams} />
                         </Grid>
 
