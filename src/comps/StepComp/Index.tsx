@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Grid, } from '@material-ui/core';
+import { Typography, Grid } from '@material-ui/core';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import Step1 from '../../assets/Screenshot 2021-07-10 at 11.43.16.png';
 import Step2 from '../../assets/Screenshot 2021-07-10 at 11.46.57.png';

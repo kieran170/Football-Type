@@ -2,17 +2,17 @@ import React, { createContext, useReducer } from 'react';
 
 interface State {
     fields: {
-        [key: string]: string
+        [key: string]: string;
     },
-    logged: boolean,
-    country: string | null,
-    favTeamNum: string | null
+    logged: boolean;
+    country: string | null;
+    favTeamNum: string | null;
 }
 
 type Action = {
-    type: 'UPDATE_FIELDS' | 'LOG_IN' | 'LOG_OUT' | 'SET_COUNTRY',
-    key: string,
-    payload: string,
+    type: 'UPDATE_FIELDS' | 'LOG_IN' | 'LOG_OUT' | 'SET_COUNTRY';
+    key: string;
+    payload: string;
 }
 
 export const UserContext = createContext<{ state: State, dispatch: React.Dispatch<any> } | null>(null)

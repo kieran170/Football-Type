@@ -17,6 +17,7 @@ const useStyles = makeStyles({
     },
     row: {
         backgroundColor: 'white',
+        transitionDuration: '0.5s',
         '&:hover': {
             backgroundColor: 'grey'
         }
@@ -44,17 +45,17 @@ export default function Index(props: IProps) {
                 </TableHead>
                 <TableBody>
                     {data.map((item) => (
-                        <TableRow component={Link} style={{textDecoration: 'none'}} to={`/teams/${item.team.id}`} key={item.team.name} className={classes.row}>
+                        <TableRow component={Link} style={{ textDecoration: 'none' }} to={`/teams/${item.team.id}`} key={item.team.name} className={classes.row}>
                             <TableCell component="th" scope="row">
                                 {item.position}
                             </TableCell>
                             <TableCell> <img style={{ height: '20px' }} src={item.team.crestUrl} alt='team-name' />{item.team.name}</TableCell>
-                            <TableCell style={{ textAlign: 'center' }}>{item.playedGames}</TableCell>
-                            <TableCell style={{ textAlign: 'center' }} >{item.won}</TableCell>
-                            <TableCell style={{ textAlign: 'center' }}>{item.draw}</TableCell>
-                            <TableCell style={{ textAlign: 'center' }}>{item.lost}</TableCell>
-                            <TableCell style={{ textAlign: 'center' }}>{item.goalDifference}</TableCell>
-                            <TableCell style={{ textAlign: 'center' }}>{item.points}</TableCell>
+                            <TableCell className={classes.text}>{item.playedGames}</TableCell>
+                            <TableCell className={classes.text}>{item.won}</TableCell>
+                            <TableCell className={classes.text}>{item.draw}</TableCell>
+                            <TableCell className={classes.text}>{item.lost}</TableCell>
+                            <TableCell className={classes.text}>{item.goalDifference}</TableCell>
+                            <TableCell className={classes.text}>{item.points}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>

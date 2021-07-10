@@ -12,6 +12,40 @@ const useStyles = makeStyles((theme) => ({
     selectEmpty: {
         marginTop: theme.spacing(2),
     },
+    loadingScreenText: {
+        color: 'white',
+        fontWeight: 1000,
+        display: 'flex',
+        justifyContent: 'center'
+    },
+    pageContainer: {
+        height: '100vh',
+        backgroundColor: '#3c3c3c'
+    },
+    container: {
+        display: 'flex',
+        justifyContent: 'center'
+    },
+    formContainer: {
+        textAlign: 'center',
+        padding: '35px 0 35px 0',
+        backgroundColor: 'rgb(100 100 255)',
+        borderRadius: '10px',
+        justifyContent: 'center',
+        marginTop: '5%'
+    },
+    select: {
+        backgroundColor: 'white',
+        borderRadius: '15px'
+    },
+    button: {
+        marginTop: '25px',
+        backgroundColor: 'white'
+    },
+    input: {
+        backgroundColor: 'white',
+        borderRadius: '14px'
+    }
 }));
 
 export default function Index(): JSX.Element {
@@ -90,12 +124,12 @@ export default function Index(): JSX.Element {
     }, [userContext?.state.logged, history])
 
     return (
-        <Grid style={{ height: '100vh', backgroundColor: '#3c3c3c' }}>
-            <Grid style={{ display: 'flex', justifyContent: 'center' }}>
+        <Grid className={classes.pageContainer}>
+            <Grid className={classes.container}>
             </Grid>
             {!logged ?
-                <Grid container md={12} style={{ display: 'flex', justifyContent: 'center' }}>
-                    <Grid container md={4} style={{ textAlign: 'center', padding: '35px 0 35px 0', backgroundColor: 'rgb(100 100 255)', borderRadius: '10px', justifyContent: 'center', marginTop: '5%' }}>
+                <Grid container md={12} className={classes.container}>
+                    <Grid container md={4} className={classes.formContainer}>
                         <Grid item md={12}>
                             <Typography style={{ fontWeight: 1000 }} variant='h3'>WELCOME</Typography>
                         </Grid>
@@ -106,7 +140,7 @@ export default function Index(): JSX.Element {
                                         <FormControl variant="filled" className={classes.formControl}>
                                             <Typography>Pick your favorite league</Typography>
                                             <Select
-                                                style={{ backgroundColor: 'white', borderRadius: '15px' }}
+                                                className={classes.select}
                                                 labelId="demo-simple-select-filled-label"
                                                 id="demo-simple-select-filled"
                                                 onChange={(e) => handleCountryChange(e)}
@@ -127,11 +161,11 @@ export default function Index(): JSX.Element {
                             return (
                                 <Grid item md={12} style={{ paddingTop: '30px' }}>
                                     <Typography>{field.name}</Typography>
-                                    <TextField onChange={(e) => handleChange(field.key, e)} style={{ backgroundColor: 'white', borderRadius: '14px' }} variant='outlined' type={field.type || 'text'} placeholder={field.placeholder} />
+                                    <TextField onChange={(e) => handleChange(field.key, e)} className={classes.input} variant='outlined' type={field.type || 'text'} placeholder={field.placeholder} />
                                 </Grid>
                             )
                         })}
-                        <Button onClick={handleClick} style={{ marginTop: '25px', backgroundColor: 'white' }} variant='outlined'>Log In</Button>
+                        <Button onClick={handleClick} className={classes.button} variant='outlined'>Log In</Button>
                         <Grid item md={12}>
                             {error && <Typography>Please fill all fields</Typography>}
                             {emailError && <Typography>Enter a valid email</Typography>}
@@ -141,12 +175,12 @@ export default function Index(): JSX.Element {
                 :
                 <>
                     <Grid md={12}>
-                        <Typography style={{ color: 'white', fontWeight: 1000, display: 'flex', justifyContent: 'center' }} variant='h2'>Welcome To Football planet</Typography>
+                        <Typography className={classes.loadingScreenText} variant='h2'>Welcome To Football Planet</Typography>
                     </Grid>
                     <Grid md={12}>
-                        <Typography style={{ color: 'white', fontWeight: 1000, display: 'flex', justifyContent: 'center' }} variant='h1'>{userContext?.state.fields.userName}</Typography>
+                        <Typography className={classes.loadingScreenText} variant='h1'>{userContext?.state.fields.userName}</Typography>
                     </Grid>
-                    <Grid style={{ display: 'flex', justifyContent: 'center' }}>
+                    <Grid className={classes.container}>
                         <img style={{ height: '500px' }} src='https://freesvg.org/img/1549325322.png' alt='soccer' />
                     </Grid>
                 </>

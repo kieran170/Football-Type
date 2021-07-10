@@ -16,6 +16,21 @@ const useStyles = makeStyles((theme) => ({
     selectEmpty: {
         marginTop: theme.spacing(2),
     },
+    title: {
+        color: 'rgb(21, 55, 124)',
+        transitionDuration: '1s',
+        '&:hover': {
+            color: 'rgb(215, 2, 2)'
+        }
+    },
+    container: {
+        backgroundColor: '#d2d0d7',
+        height: '100hv'
+    },
+    leagueContainer: {
+        display: 'flex',
+        justifyContent: 'center'
+    }
 }));
 
 
@@ -73,11 +88,11 @@ export default function Index() {
 
     return (
         <>
-            <Grid container md={12} style={{ backgroundColor: '#d2d0d7', height: '100hv' }}>
+            <Grid container md={12} className={classes.container}>
                 <Grid container md={12}>
                     <Header />
                     <Grid item md={12} style={{ textAlign: 'center' }}>
-                        <Typography variant='h1'>{data?.competition.name.toUpperCase()}</Typography>
+                        <Typography className={classes.title} variant='h1'>{data?.competition.name.toUpperCase()}</Typography>
                     </Grid>
                     <Grid item md={12} style={{ paddingTop: '25px' }}>
                         <FormControl variant="filled" className={classes.formControl}>
@@ -97,11 +112,11 @@ export default function Index() {
                             </Select>
                         </FormControl>
                     </Grid>
-                    <Grid container md={12} style={{display: 'flex', justifyContent: 'center'}}>
+                    <Grid container md={12} className={classes.leagueContainer}>
                         <Grid container md={9}>
                             <LeagueTable data={teams} />
                         </Grid>
-                        <Grid md={9} style={{paddingTop: '30px'}}>
+                        <Grid md={9} style={{ paddingTop: '30px' }}>
                             <GoalScorerTable country={leagueNum} data={teams} />
                         </Grid>
 

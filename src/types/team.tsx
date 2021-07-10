@@ -4,7 +4,7 @@ export interface team {
     area: area;
     clubColors: string;
     crestUrl: string;
-    email: string
+    email: string;
     founded: number;
     id: number;
     lastUpdated: string;
