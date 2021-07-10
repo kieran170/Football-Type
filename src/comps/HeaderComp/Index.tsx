@@ -2,7 +2,7 @@ import { Typography, Grid, Button } from '@material-ui/core'
 import React, { useContext } from 'react';
 import { UserContext } from '../../context';
 import { Link } from "react-router-dom";
-import NavStrap from '../NavStrap/Index'
+import NavStrap from '../NavStrap/Index';
 
 export default function Index() {
     const userContext = useContext(UserContext)

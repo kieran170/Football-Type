@@ -22,7 +22,6 @@ const useStyles = makeStyles({
 export default function Index() {
 
     const classes = useStyles()
-    const links = ['Leagues', 'Favorite Club']
     return (
         <Grid container md={12} style={{ backgroundColor: '#dedde2', padding: '8px' }}>
             <Grid container md={1}></Grid>

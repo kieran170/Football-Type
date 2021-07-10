@@ -4,6 +4,7 @@ import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import Step1 from '../../assets/Screenshot 2021-07-10 at 11.43.16.png';
 import Step2 from '../../assets/Screenshot 2021-07-10 at 11.46.57.png';
 import Step3 from '../../assets/Screenshot 2021-07-10 at 11.50.55.png';
+import Step4 from '../../assets/Screenshot 2021-07-10 at 14.11.59.png';
 import { Link } from "react-router-dom";
 
 export default function Index() {
@@ -44,6 +45,9 @@ export default function Index() {
                     <Grid item md={12} style={{ display: 'inline-flex' }}>
                         <Typography>Step 4</Typography>
                         <ArrowRightAltIcon />
+                    </Grid>
+                    <Grid item md={12}>
+                        <img style={{ width: '80%' }} src={Step4} alt='step 1' />
                     </Grid>
                 </Grid>
             </Grid>
