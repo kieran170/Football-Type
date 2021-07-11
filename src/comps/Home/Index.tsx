@@ -131,14 +131,14 @@ export default function Index(): JSX.Element {
                 <Grid container md={12} className={classes.container}>
                     <Grid container md={4} className={classes.formContainer}>
                         <Grid item md={12}>
-                            <Typography style={{ fontWeight: 1000 }} variant='h3'>WELCOME</Typography>
+                            <Typography style={{ fontWeight: 1000, color: 'white' }} variant='h3'>WELCOME</Typography>
                         </Grid>
                         {fields.map((field) => {
                             if (field.type === 'select') {
                                 return (
                                     <Grid item md={12} style={{ paddingTop: '25px' }}>
                                         <FormControl variant="filled" className={classes.formControl}>
-                                            <Typography>Pick your favorite league</Typography>
+                                            <Typography style={{color: 'white'}}>Pick your favorite league</Typography>
                                             <Select
                                                 className={classes.select}
                                                 labelId="demo-simple-select-filled-label"
@@ -160,7 +160,7 @@ export default function Index(): JSX.Element {
                             }
                             return (
                                 <Grid item md={12} style={{ paddingTop: '30px' }}>
-                                    <Typography>{field.name}</Typography>
+                                    <Typography style={{color: 'white'}}>{field.name}</Typography>
                                     <TextField onChange={(e) => handleChange(field.key, e)} className={classes.input} variant='outlined' type={field.type || 'text'} placeholder={field.placeholder} />
                                 </Grid>
                             )

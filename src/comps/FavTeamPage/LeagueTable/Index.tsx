@@ -49,7 +49,7 @@ export default function Index(props: IProps) {
                             <TableCell component="th" scope="row">
                                 {item.position}
                             </TableCell>
-                            <TableCell> <img style={{ height: '20px' }} src={item.team.crestUrl} alt='team-name' />{item.team.name}</TableCell>
+                            <TableCell> <img style={{ height: '20px', paddingRight: '10px'}} src={item.team.crestUrl} alt='team-name' />{item.team.name}</TableCell>
                             <TableCell className={classes.text}>{item.playedGames}</TableCell>
                             <TableCell className={classes.text}>{item.won}</TableCell>
                             <TableCell className={classes.text}>{item.draw}</TableCell>
