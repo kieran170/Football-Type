@@ -57,23 +57,23 @@ export default function Index(): JSX.Element {
     let history = useHistory();
     const fields = [
         {
-            name: 'Name',
+            name: 'NAME',
             placeholder: 'Enter Username',
             key: 'userName'
         },
         {
-            name: 'E-Mail',
+            name: 'E-MAIL',
             placeholder: 'Enter E-Mail',
             key: 'email'
         },
         {
-            name: 'Password',
+            name: 'PASSWORD',
             placeholder: 'Enter Password',
             type: 'password',
             key: 'password'
         },
         {
-            name: 'Favorite Team',
+            name: 'FAVORITE TEAM',
             placeholder: 'pick favorite team',
             type: 'select',
             key: 'favTeam',
@@ -138,7 +138,7 @@ export default function Index(): JSX.Element {
                                 return (
                                     <Grid item md={12} style={{ paddingTop: '25px' }}>
                                         <FormControl variant="filled" className={classes.formControl}>
-                                            <Typography style={{color: 'white'}}>Pick your favorite league</Typography>
+                                            <Typography style={{color: 'white'}}>PICK YOU FAVORITE TEAM</Typography>
                                             <Select
                                                 className={classes.select}
                                                 labelId="demo-simple-select-filled-label"
