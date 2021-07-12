@@ -98,6 +98,7 @@ export default function Index(): JSX.Element {
     const handleClick = () => {
         if (userContext?.state.fields.userName && userContext?.state.fields.password && userContext?.state.fields.email && userContext?.state.country) {
             const email = userContext?.state.fields.email
+            //eslint-disable-next-line
             const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
             if (regex.test(email) === true) {
                 setEmailError(false)
@@ -136,7 +137,7 @@ export default function Index(): JSX.Element {
                         {fields.map((field) => {
                             if (field.type === 'select') {
                                 return (
-                                    <Grid item md={12} style={{ paddingTop: '25px' }}>
+                                    <Grid key={field.key} item md={12} style={{ paddingTop: '25px' }}>
                                         <FormControl variant="filled" className={classes.formControl}>
                                             <Typography style={{color: 'white'}}>PICK YOU FAVORITE TEAM</Typography>
                                             <Select
@@ -159,7 +160,7 @@ export default function Index(): JSX.Element {
                                 )
                             }
                             return (
-                                <Grid item md={12} style={{ paddingTop: '30px' }}>
+                                <Grid key={field.key} item md={12} style={{ paddingTop: '30px' }}>
                                     <Typography style={{color: 'white'}}>{field.name}</Typography>
                                     <TextField onChange={(e) => handleChange(field.key, e)} className={classes.input} variant='outlined' type={field.type || 'text'} placeholder={field.placeholder} />
                                 </Grid>

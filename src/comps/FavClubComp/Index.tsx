@@ -61,7 +61,7 @@ export default function Index() {
                 <Typography>Venue Location - {data?.address}</Typography>
                 <Typography>Contact Number - {data?.phone}</Typography>
             </Grid>
-            <Grid item md={12} style={{ padding: '20px 0  0 8px' }}>
+            <Grid item md={6} style={{ padding: '20px 0  0 8px' }}>
                 <Typography variant='h4' className={classes.header}>Squad Rooster</Typography>
                 <Grid container md={12} style={{ marginTop: '20px' }}>
                     <Grid item md={2}>
@@ -90,7 +90,7 @@ export default function Index() {
                                     </Grid>
                                 </Grid>
                             )
-                        }
+                        } else return null
                     })}
                 </Grid>
             </Grid>
