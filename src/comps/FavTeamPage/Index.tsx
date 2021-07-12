@@ -89,6 +89,8 @@ export default function Index() {
     return (
         <>
             <Grid container md={12} className={classes.container}>
+                {console.log(leagueNum)}
+                {console.log(userContext)}
                 <Grid container md={12}>
                     <Header />
                     <Grid item md={12} style={{ textAlign: 'center' }}>
