@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState } from 'react';
-import { Grid, Typography, makeStyles, AppBar } from '@material-ui/core/';
+import { Grid, Typography, makeStyles } from '@material-ui/core/';
 import { useParams } from 'react-router-dom';
 import * as api from '../../api';
 import Button from '@material-ui/core/Button';
@@ -95,7 +95,7 @@ export default function Index() {
                 <Typography>Contact Number - {data?.phone}</Typography>
             </Grid>
             <Grid item md={5} style={{ padding: '20px 0  0 8px' }}>
-                <Typography variant='h4' className={classes.header}>Squad Rooster</Typography>
+                <Typography variant='h4' className={classes.header}>Squad Roster</Typography>
                 <Grid container md={12} style={{ paddingTop: '50px', paddingBottom: '43px' }}>
                     <Grid item md={2}>
                         <Typography variant='h5' className={classes.header}>Position</Typography>
@@ -137,7 +137,7 @@ export default function Index() {
                         {fixtures.map((fixture) => {
                             let homeOrAway = '';
                             let win: string | null = '';
-                            const date = new Date(fixture.utcDate).toDateString();
+                            const date = new Date(fixture.utcDate).toDateString().slice(3);
                             if (fixture.homeTeam.id.toString() === team_id) {
                                 homeOrAway = 'HOME_TEAM'
                             } else {
@@ -156,9 +156,9 @@ export default function Index() {
                             if (fixture.status !== "SCHEDULED") {
                                 return (
                                     <>
-                                        <Grid item md={12} >
+                                        <Grid key={fixture.id} item md={12} >
                                             <Typography>{date}</Typography>
-                                            <Typography style={{ paddingBottom: '20px' }}>{fixture.homeTeam.name} {fixture.score.fullTime.homeTeam} - {fixture.score.fullTime.awayTeam} {fixture.awayTeam.name} {win === 'WIN' && <img height='20px' src={trophy} />} </Typography>
+                                            <Typography style={{ paddingBottom: '20px' }}>{fixture.homeTeam.name} {fixture.score.fullTime.homeTeam} - {fixture.score.fullTime.awayTeam} {fixture.awayTeam.name} {win === 'WIN' && <img height='20px' src={trophy} alt='trophy' />} </Typography>
                                         </Grid>
                                     </>
                                 )
@@ -170,13 +170,11 @@ export default function Index() {
                             <Typography variant='h5' style={{ textDecoration: 'underline', paddingBottom: '43px' }}>Future Games</Typography>
                         </Grid>
                         {fixtures.map((fixture) => {
-                            let homeOrAway = '';
-                            let win: string | null = '';
                             const date = new Date(fixture.utcDate).toDateString();
                             if (fixture.status === "SCHEDULED") {
                                 return (
                                     <>
-                                        <Grid item md={12}>
+                                        <Grid key={fixture.id} item md={12}>
                                             <Typography>{date}</Typography>
                                             <Typography style={{ paddingBottom: '20px' }}>{fixture.homeTeam.name} - {fixture.awayTeam.name}</Typography>
                                         </Grid>
