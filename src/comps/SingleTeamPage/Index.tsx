@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState } from 'react';
-import { Grid, Typography, makeStyles } from '@material-ui/core/';
+import { Grid, Typography, makeStyles, AppBar } from '@material-ui/core/';
 import { useParams } from 'react-router-dom';
 import * as api from '../../api';
 import Button from '@material-ui/core/Button';
@@ -36,7 +36,7 @@ const useStyles = makeStyles({
     dataTitle: {
         textDecoration: 'underline',
         marginBottom: '20px'
-    }
+    },
 });
 
 export default function Index() {
@@ -85,7 +85,7 @@ export default function Index() {
             <Grid className={classes.buttonContainer} item md={12}>
                 <Button onClick={handleClick} variant='outlined'>Save as favorite team</Button>
             </Grid>
-            <Grid item md={12} style={{ paddingLeft: '8px' }}>
+            <Grid item md={12} style={{ paddingLeft: '8px', marginBottom: '50px' }}>
                 <Typography variant='h4' className={classes.dataTitle}>Team Data</Typography>
                 <Typography>Name - {data?.name}</Typography>
                 <Typography>Founded - {data?.founded}</Typography>
@@ -94,16 +94,16 @@ export default function Index() {
                 <Typography>Venue Location - {data?.address}</Typography>
                 <Typography>Contact Number - {data?.phone}</Typography>
             </Grid>
-            <Grid item md={8} style={{ padding: '20px 0  0 8px' }}>
+            <Grid item md={5} style={{ padding: '20px 0  0 8px' }}>
                 <Typography variant='h4' className={classes.header}>Squad Rooster</Typography>
-                <Grid container md={12} style={{ marginTop: '20px' }}>
+                <Grid container md={12} style={{ paddingTop: '50px', paddingBottom: '43px' }}>
                     <Grid item md={2}>
                         <Typography variant='h5' className={classes.header}>Position</Typography>
                     </Grid>
-                    <Grid item md={4}>
+                    <Grid item md={5}>
                         <Typography variant='h5' className={classes.header}>Name</Typography>
                     </Grid>
-                    <Grid item md={2}>
+                    <Grid item md={1}>
                         <Typography variant='h5' className={classes.header}>Nationality</Typography>
                     </Grid>
                 </Grid>
@@ -115,7 +115,7 @@ export default function Index() {
                                     <Grid item md={2}>
                                         <Typography>{player.position}</Typography>
                                     </Grid>
-                                    <Grid item md={4}>
+                                    <Grid item md={5}>
                                         <Typography>{player.name}</Typography>
                                     </Grid>
                                     <Grid item md={2}>
@@ -127,39 +127,67 @@ export default function Index() {
                     })}
                 </Grid>
             </Grid>
-            <Grid item md={4} style={{ padding: '20px 0  0 8px' }}>
-                <Typography variant='h4' className={classes.header}>Fixtures</Typography>
-                <Grid container md={12} style={{ marginTop: '30px' }}>
-                    {console.log(fixtures)}
-                    {fixtures.map((fixture) => {
-                        let homeOrAway = '';
-                        let win: string | null = '';
-                        const date = new Date(fixture.utcDate).toDateString()
-                        console.log(date)
-                        if (fixture.homeTeam.id.toString() === team_id){
-                            homeOrAway = 'HOME_TEAM'
-                        } else {
-                            homeOrAway = 'AWAY_TEAM'
-                        }
-                        if (homeOrAway === fixture.score.winner) {
-                            win = 'WIN'
-                        } else if (fixture.score.winner === 'DRAW') {
-                            win = 'DRAW'
-                        } else if (fixture.score.winner === null) {
-                            win= null
-                        } else {
-                            win = 'LOST'
-                        }
-                        return (
-                            <Grid item md={12} style={{paddingBottom: '10px'}}>
-                                <Typography>{date}</Typography>
-                                    <Typography>{fixture.homeTeam.name} {fixture.score.fullTime.homeTeam} - {fixture.score.fullTime.awayTeam} {fixture.awayTeam.name} {win === 'WIN' && <img height='20px' src={trophy}/>} </Typography>
-                            </Grid>
-                        )
-                    })}
+            <Grid item md={7} style={{ padding: '20px 0  0 8px' }}>
+                <Typography variant='h4' style={{ paddingBottom: '50px', textDecoration: 'underline' }}>Fixtures</Typography>
+                <Grid container md={12}>
+                    <Grid item md={7}>
+                        <Grid item md={12} >
+                            <Typography variant='h5' style={{ textDecoration: 'underline', paddingBottom: '43px' }}>Previous Games</Typography>
+                        </Grid>
+                        {fixtures.map((fixture) => {
+                            let homeOrAway = '';
+                            let win: string | null = '';
+                            const date = new Date(fixture.utcDate).toDateString();
+                            if (fixture.homeTeam.id.toString() === team_id) {
+                                homeOrAway = 'HOME_TEAM'
+                            } else {
+                                homeOrAway = 'AWAY_TEAM'
+                            }
+                            if (homeOrAway === fixture.score.winner) {
+                                win = 'WIN'
+                            } else if (fixture.score.winner === 'DRAW') {
+                                win = 'DRAW'
+                            } else if (fixture.score.winner === null) {
+                                win = null
+                            } else {
+                                win = 'LOST'
+                            }
+
+                            if (fixture.status !== "SCHEDULED") {
+                                return (
+                                    <>
+                                        <Grid item md={12} >
+                                            <Typography>{date}</Typography>
+                                            <Typography style={{ paddingBottom: '20px' }}>{fixture.homeTeam.name} {fixture.score.fullTime.homeTeam} - {fixture.score.fullTime.awayTeam} {fixture.awayTeam.name} {win === 'WIN' && <img height='20px' src={trophy} />} </Typography>
+                                        </Grid>
+                                    </>
+                                )
+                            } else return null
+                        })}
+                    </Grid>
+                    <Grid item md={5}>
+                        <Grid item md={12} >
+                            <Typography variant='h5' style={{ textDecoration: 'underline', paddingBottom: '43px' }}>Future Games</Typography>
+                        </Grid>
+                        {fixtures.map((fixture) => {
+                            let homeOrAway = '';
+                            let win: string | null = '';
+                            const date = new Date(fixture.utcDate).toDateString();
+                            if (fixture.status === "SCHEDULED") {
+                                return (
+                                    <>
+                                        <Grid item md={12}>
+                                            <Typography>{date}</Typography>
+                                            <Typography style={{ paddingBottom: '20px' }}>{fixture.homeTeam.name} - {fixture.awayTeam.name}</Typography>
+                                        </Grid>
+                                    </>
+                                )
+                            } else return null
+                        })}
+                    </Grid>
                 </Grid>
             </Grid>
             <Footer />
-        </Grid>
+        </Grid >
     )
 }
