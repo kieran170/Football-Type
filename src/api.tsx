@@ -3,7 +3,7 @@ import axios from "axios";
 export const getLeagues = (nation: string) => {
   return axios
     .get(
-      `http://api.football-data.org/v2/competitions/${nation}/standings`,
+      `https://api.football-data.org/v2/competitions/${nation}/standings`,
       {
         headers: { "X-Auth-Token": "bb5c9f0b8e1a442ea833002ce9111d90" },
       }
@@ -16,7 +16,7 @@ export const getLeagues = (nation: string) => {
 export const getGoalScorers = (nation: string) => {
   return axios
     .get(
-      `http://api.football-data.org/v2/competitions/${nation}/scorers`,
+      `https://api.football-data.org/v2/competitions/${nation}/scorers`,
       {
         headers: { "X-Auth-Token": "bb5c9f0b8e1a442ea833002ce9111d90" },
       }
@@ -29,7 +29,7 @@ export const getGoalScorers = (nation: string) => {
 export const getTeamData = (team_id: string) => {
   return axios
     .get(
-      `http://api.football-data.org/v2/teams/${team_id}`,
+      `https://api.football-data.org/v2/teams/${team_id}`,
       {
         headers: { "X-Auth-Token": "bb5c9f0b8e1a442ea833002ce9111d90" },
       }
@@ -42,7 +42,7 @@ export const getTeamData = (team_id: string) => {
 export const getTeamFixtures = (team_id: string) => {
   return axios
     .get(
-      `http://api.football-data.org//v2/teams/${team_id}/matches`,
+      `https://api.football-data.org//v2/teams/${team_id}/matches`,
       {
         headers: { "X-Auth-Token": "bb5c9f0b8e1a442ea833002ce9111d90" },
       }
