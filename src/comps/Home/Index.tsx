@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
         fontWeight: 1000,
         display: 'flex',
         justifyContent: 'center',
-        '@media (max-width: 1025px)' : {
+        '@media (max-width: 1025px)': {
             width: '100%',
             textAlign: 'center'
         }
@@ -25,14 +25,14 @@ const useStyles = makeStyles((theme) => ({
     pageContainer: {
         height: '100vh',
         backgroundColor: '#3c3c3c',
-        '@media (max-width: 1025px)' : {
+        '@media (max-width: 1025px)': {
             width: '100%'
         }
     },
     container: {
         display: 'flex',
         justifyContent: 'center',
-        '@media (max-width: 1025px)' : {
+        '@media (max-width: 1025px)': {
             width: '100%'
         }
     },
@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: '10px',
         justifyContent: 'center',
         marginTop: '5%',
-        '@media (max-width: 1025px)' : {
+        '@media (max-width: 1025px)': {
             width: '100%'
         }
     },
@@ -60,18 +60,18 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: '14px'
     },
     fontColor: {
-        fontWeight: 1000, 
+        fontWeight: 1000,
         color: 'white'
     },
     image: {
         height: '500px',
-        '@media (max-width: 1025px)' : {
+        '@media (max-width: 1025px)': {
             height: '250px'
         }
     },
     padding: {
         paddingTop: '25px',
-        '@media (max-width: 1024px)' : {
+        '@media (max-width: 1024px)': {
             width: '100%'
         }
     }
@@ -149,7 +149,7 @@ export default function Index(): JSX.Element {
             setLogged(true)
             setTimeout(() => {
                 history.push('/home')
-            }, 500)
+            }, 3000)
         }
     }, [userContext?.state.logged, history])
 

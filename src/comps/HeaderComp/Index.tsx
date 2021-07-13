@@ -7,10 +7,7 @@ import NavStrap from '../NavStrap/Index';
 const useStyles = makeStyles({
     link: {
         color: 'white',
-        fontWeight: 'bold',
-        '@media (max-width: 1025px)' : {
-            width: '100%',
-        }
+        fontWeight: 'bold'
     },
     container: {
         display: 'flex',
@@ -18,16 +15,28 @@ const useStyles = makeStyles({
         alignItems: 'center',
         '&:hover': {
             backgroundColor: '#c30000'
+        }
+    },
+    containerButton: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        '&:hover': {
+            backgroundColor: '#c30000'
         },
-        '@media (max-width: 1025px)' : {
-            width: '100%',
+        '@media (max-width: 1025px)': {
+            justifyContent: 'flex-end'
         }
     },
     titleCon1: {
         backgroundColor: '#15377c',
         justifyContent: 'flex-end',
         alignItems: 'center',
-        paddingRight: '8px'
+        paddingRight: '8px',
+        '@media (max-width: 1025px)': {
+            paddingRight: 0,
+            justifyContent: 'unset'
+        }
     },
     titleCon2: {
         backgroundColor: '#d70202',
@@ -41,13 +50,16 @@ const useStyles = makeStyles({
     pageCon: {
         height: '100px',
         display: 'flex',
-        '@media (max-width: 1025px)' : {
-            display: 'inline-flex'
+        '@media (max-width: 1025px)': {
+            height: 'unset'
         }
-        
     },
     headersItem: {
-        diplay: 'inline-flex'
+        diplay: 'inline-flex',
+        '@media (max-width: 1025px)': {
+            display: 'flex',
+            justifyContent: 'space-between'
+        }
     },
     skySportLink: {
         textDecoration: 'none',
@@ -96,7 +108,7 @@ export default function Index() {
                             </Link>
                         </Grid>
                     </Grid>
-                    <Grid container md={1} className={classes.container}>
+                    <Grid container md={1} className={classes.containerButton}>
                         <Link className={classes.linkDec} to='/'>
                             <Button onClick={handleClick} className={classes.link}>Log Out</Button>
                         </Link>
