@@ -93,7 +93,7 @@ export default function Index() {
                     <Grid item md={3}></Grid>
                     <Grid container md={5} className={classes.headersItem}>
                         <Grid item md={3}>
-                            <a className={classes.skySportLink} href='https://www.skysports.com/get-sky'>
+                            <a className={classes.skySportLink} target='blank' href='https://www.skysports.com/get-sky'>
                                 <Typography className={classes.link} >Get Sky Sports</Typography>
                             </a>
                         </Grid>
