@@ -16,6 +16,10 @@ const useStyles = makeStyles({
         '&:hover': {
             backgroundColor: 'rgb(210, 208, 215)'
         }
+    },
+    strapContainer: {
+        backgroundColor: '#dedde2', 
+        padding: '8px'
     }
 });
 
@@ -23,7 +27,7 @@ export default function Index() {
 
     const classes = useStyles()
     return (
-        <Grid container md={12} style={{ backgroundColor: '#dedde2', padding: '8px' }}>
+        <Grid container md={12} className={classes.strapContainer}>
             <Grid container md={1}></Grid>
             <Grid container md={8}>
                 <Grid item md={1} className={classes.linkCon}>

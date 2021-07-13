@@ -27,6 +27,34 @@ const useStyles = makeStyles({
     dataTitle: {
         textDecoration: 'underline',
         marginBottom: '20px'
+    },
+    trophy: {
+        height: '50px'
+    },
+    teamDataContainer: {
+        paddingLeft: '8px', 
+        marginBottom: '50px'
+    },
+    mainItemContainer: {
+        padding: '20px 0  0 8px'
+    },
+    rosterSubHeadings: {
+        paddingTop: '50px', 
+        paddingBottom: '43px'
+    },
+    playerInfo: {
+        display: 'inline-flex'
+    },
+    fixtureTitle: {
+        paddingBottom: '50px', 
+        textDecoration: 'underline'
+    },
+    fixturesSubHeaders: {
+        textDecoration: 'underline', 
+        paddingBottom: '43px'
+    },
+    fixtures: {
+        paddingBottom: '20px'
     }
 });
 
@@ -66,9 +94,9 @@ export default function Index() {
         <Grid container md={12}>
             <Grid className={classes.container} item md={12}>
                 <Typography variant='h2'>{data?.shortName.toUpperCase()}</Typography>
-                <img style={{ height: '50px' }} src={data?.crestUrl} alt='club-badge' />
+                <img className={classes.trophy} src={data?.crestUrl} alt='club-badge' />
             </Grid>
-            <Grid item md={12} style={{ paddingLeft: '8px', marginBottom: '50px' }}>
+            <Grid item md={12} className={classes.teamDataContainer} >
                 <Typography variant='h4' className={classes.dataTitle}>Team Data</Typography>
                 <Typography>Name - {data?.name}</Typography>
                 <Typography>Founded - {data?.founded}</Typography>
@@ -77,9 +105,9 @@ export default function Index() {
                 <Typography>Venue Location - {data?.address}</Typography>
                 <Typography>Contact Number - {data?.phone}</Typography>
             </Grid>
-            <Grid item md={5} style={{ padding: '20px 0  0 8px' }}>
+            <Grid item md={5} className={classes.mainItemContainer}>
                 <Typography variant='h4' className={classes.header}>Squad Roster</Typography>
-                <Grid container md={12} style={{ paddingTop: '50px', paddingBottom: '43px' }}>
+                <Grid container md={12} className={classes.rosterSubHeadings}>
                     <Grid item md={2}>
                         <Typography variant='h5' className={classes.header}>Position</Typography>
                     </Grid>
@@ -94,7 +122,7 @@ export default function Index() {
                     {data?.squad.map((player) => {
                         if (player.position) {
                             return (
-                                <Grid item md={12} key={player.id} style={{ display: 'inline-flex' }}>
+                                <Grid item md={12} key={player.id} className={classes.playerInfo}>
                                     <Grid item md={2}>
                                         <Typography>{player.position}</Typography>
                                     </Grid>
@@ -110,12 +138,12 @@ export default function Index() {
                     })}
                 </Grid>
             </Grid>
-            <Grid item md={7} style={{ padding: '20px 0  0 8px' }}>
-                <Typography variant='h4' style={{ paddingBottom: '50px', textDecoration: 'underline' }}>Fixtures</Typography>
+            <Grid item md={7} className={classes.mainItemContainer}>
+                <Typography variant='h4' className={classes.fixtureTitle}>Fixtures</Typography>
                 <Grid container md={12}>
                     <Grid item md={7}>
                         <Grid item md={12} >
-                            <Typography variant='h5' style={{ textDecoration: 'underline', paddingBottom: '43px' }}>Previous Games</Typography>
+                            <Typography variant='h5' className={classes.fixturesSubHeaders}>Previous Games</Typography>
                         </Grid>
                         {fixtures.map((fixture) => {
                             let homeOrAway = '';
@@ -141,7 +169,7 @@ export default function Index() {
                                     <>
                                         <Grid key={fixture.id} item md={12} >
                                             <Typography>{date}</Typography>
-                                            <Typography style={{ paddingBottom: '20px' }}>{fixture.homeTeam.name} {fixture.score.fullTime.homeTeam} - {fixture.score.fullTime.awayTeam} {fixture.awayTeam.name} {win === 'WIN' && <img height='20px' src={trophy} alt='trophy' />} </Typography>
+                                            <Typography className={classes.fixtures}>{fixture.homeTeam.name} {fixture.score.fullTime.homeTeam} - {fixture.score.fullTime.awayTeam} {fixture.awayTeam.name} {win === 'WIN' && <img height='20px' src={trophy} alt='trophy' />} </Typography>
                                         </Grid>
                                     </>
                                 )
@@ -150,7 +178,7 @@ export default function Index() {
                     </Grid>
                     <Grid item md={5}>
                         <Grid item md={12} >
-                            <Typography variant='h5' style={{ textDecoration: 'underline', paddingBottom: '43px' }}>Future Games</Typography>
+                            <Typography variant='h5' className={classes.fixturesSubHeaders}>Future Games</Typography>
                         </Grid>
                         {fixtures.map((fixture) => {
                             const date = new Date(fixture.utcDate).toDateString();
@@ -159,7 +187,7 @@ export default function Index() {
                                     <>
                                         <Grid key={fixture.id} item md={12}>
                                             <Typography>{date}</Typography>
-                                            <Typography style={{ paddingBottom: '20px' }}>{fixture.homeTeam.name} - {fixture.awayTeam.name}</Typography>
+                                            <Typography className={classes.fixtures}>{fixture.homeTeam.name} - {fixture.awayTeam.name}</Typography>
                                         </Grid>
                                     </>
                                 )

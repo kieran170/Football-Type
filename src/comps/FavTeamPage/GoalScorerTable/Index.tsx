@@ -22,6 +22,9 @@ const useStyles = makeStyles({
     },
     tableContainer: {
         marginBottom: '30px'
+    }, 
+    row: {
+        padding: '18.5px',
     }
 });
 
@@ -57,8 +60,8 @@ export default function Index(props: IProps) {
                     </TableHead>
                     <TableBody>
                         {scorers.map((item) => (
-                            <TableRow key={item.player.id}>
-                                <TableCell style={{ padding: '18.5px' }}>{item.player.name}</TableCell>
+                            <TableRow  key={item.player.id}>
+                                <TableCell className={classes.row} >{item.player.name}</TableCell>
                                 <TableCell className={classes.text}>{item.team.name}</TableCell>
                                 <TableCell className={classes.text}>{item.numberOfGoals}</TableCell>
                             </TableRow>

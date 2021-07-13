@@ -30,6 +30,12 @@ const useStyles = makeStyles((theme) => ({
     leagueContainer: {
         display: 'flex',
         justifyContent: 'center'
+    },
+    titleHeader: {
+        textAlign: 'center'
+    }, 
+    scorersContainer: {
+        paddingTop: '30px'
     }
 }));
 
@@ -91,10 +97,10 @@ export default function Index() {
             <Grid container md={12} className={classes.container}>
                 <Grid container md={12}>
                     <Header />
-                    <Grid item md={12} style={{ textAlign: 'center' }}>
+                    <Grid item md={12} className={classes.titleHeader}>
                         <Typography className={classes.title} variant='h1'>{data?.competition.name.toUpperCase()}</Typography>
                     </Grid>
-                    <Grid item md={12} style={{ paddingTop: '25px' }}>
+                    <Grid item md={12} >
                         <FormControl variant="filled" className={classes.formControl}>
                             <Typography>Show different league</Typography>
                             <Select
@@ -116,7 +122,7 @@ export default function Index() {
                         <Grid container md={9}>
                             <LeagueTable data={teams} />
                         </Grid>
-                        <Grid md={9} style={{ paddingTop: '30px' }}>
+                        <Grid md={9} className={classes.scorersContainer} >
                             <GoalScorerTable country={leagueNum} data={teams} />
                         </Grid>
 

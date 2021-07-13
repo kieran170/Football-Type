@@ -45,6 +45,16 @@ const useStyles = makeStyles((theme) => ({
     input: {
         backgroundColor: 'white',
         borderRadius: '14px'
+    },
+    fontColor: {
+        fontWeight: 1000, 
+        color: 'white'
+    },
+    image: {
+        height: '500px'
+    },
+    padding: {
+        paddingTop: '25px'
     }
 }));
 
@@ -77,7 +87,7 @@ export default function Index(): JSX.Element {
             placeholder: 'pick favorite team',
             type: 'select',
             key: 'favTeam',
-        }
+        },
     ]
 
     const handleChange = (key: string, e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -132,14 +142,14 @@ export default function Index(): JSX.Element {
                 <Grid container md={12} className={classes.container}>
                     <Grid container md={4} className={classes.formContainer}>
                         <Grid item md={12}>
-                            <Typography style={{ fontWeight: 1000, color: 'white' }} variant='h3'>WELCOME</Typography>
+                            <Typography className={classes.fontColor} variant='h3'>WELCOME</Typography>
                         </Grid>
                         {fields.map((field) => {
                             if (field.type === 'select') {
                                 return (
-                                    <Grid key={field.key} item md={12} style={{ paddingTop: '25px' }}>
+                                    <Grid key={field.key} item md={12} className={classes.padding}>
                                         <FormControl variant="filled" className={classes.formControl}>
-                                            <Typography style={{color: 'white'}}>PICK YOU FAVORITE TEAM</Typography>
+                                            <Typography className={classes.fontColor}>PICK YOU FAVORITE TEAM</Typography>
                                             <Select
                                                 className={classes.select}
                                                 labelId="demo-simple-select-filled-label"
@@ -160,8 +170,8 @@ export default function Index(): JSX.Element {
                                 )
                             }
                             return (
-                                <Grid key={field.key} item md={12} style={{ paddingTop: '30px' }}>
-                                    <Typography style={{color: 'white'}}>{field.name}</Typography>
+                                <Grid key={field.key} item md={12} className={classes.padding}>
+                                    <Typography className={classes.fontColor}>{field.name}</Typography>
                                     <TextField onChange={(e) => handleChange(field.key, e)} className={classes.input} variant='outlined' type={field.type || 'text'} placeholder={field.placeholder} />
                                 </Grid>
                             )
@@ -182,7 +192,7 @@ export default function Index(): JSX.Element {
                         <Typography className={classes.loadingScreenText} variant='h1'>{userContext?.state.fields.userName}</Typography>
                     </Grid>
                     <Grid className={classes.container}>
-                        <img style={{ height: '500px' }} src='https://freesvg.org/img/1549325322.png' alt='soccer' />
+                        <img className={classes.image} src='https://freesvg.org/img/1549325322.png' alt='soccer' />
                     </Grid>
                 </>
             }

@@ -17,10 +17,18 @@ const useStyles = makeStyles({
     },
     row: {
         backgroundColor: 'white',
+        textDecoration: 'none',
         transitionDuration: '0.5s',
         '&:hover': {
             backgroundColor: 'grey'
         }
+    },
+    link: {
+        textDecoration: 'none'
+    },
+    badgeImage: {
+        height: '20px',
+        paddingRight: '10px',
     }
 });
 
@@ -29,7 +37,7 @@ export default function Index(props: IProps) {
     const data = props.data
     return (
         <TableContainer component={Paper}>
-            <Typography variant='h4' style={{ textAlign: 'center' }}>League Table</Typography>
+            <Typography variant='h4' className={classes.text}>League Table</Typography>
             <Table className={classes.table} aria-label="simple table">
                 <TableHead>
                     <TableRow>
@@ -45,11 +53,11 @@ export default function Index(props: IProps) {
                 </TableHead>
                 <TableBody>
                     {data.map((item) => (
-                        <TableRow component={Link} style={{ textDecoration: 'none' }} to={`/teams/${item.team.id}`} key={item.team.name} className={classes.row}>
+                        <TableRow component={Link} to={`/teams/${item.team.id}`} key={item.team.name} className={classes.row}>
                             <TableCell component="th" scope="row">
                                 {item.position}
                             </TableCell>
-                            <TableCell> <img style={{ height: '20px', paddingRight: '10px'}} src={item.team.crestUrl} alt='team-name' />{item.team.name}</TableCell>
+                            <TableCell> <img className={classes.badgeImage} src={item.team.crestUrl} alt='team-name' />{item.team.name}</TableCell>
                             <TableCell className={classes.text}>{item.playedGames}</TableCell>
                             <TableCell className={classes.text}>{item.won}</TableCell>
                             <TableCell className={classes.text}>{item.draw}</TableCell>

@@ -35,6 +35,12 @@ const useStyles = makeStyles({
     pageCon: {
         height: '100px',
         display: 'flex',
+    },
+    headersItem: {
+        diplay: 'inline-flex'
+    },
+    skySportLink: {
+        textDecoration: 'none',
     }
 });
 
@@ -63,9 +69,9 @@ export default function Index() {
                         <Typography className={classes.link} variant='h4'>PLANET</Typography>
                     </Grid>
                     <Grid item md={3}></Grid>
-                    <Grid container md={5} style={{ display: 'inline-flex' }}>
+                    <Grid container md={5} className={classes.headersItem}>
                         <Grid item md={3}>
-                            <a style={{ textDecoration: 'none' }} href='https://www.skysports.com/get-sky'>
+                            <a className={classes.skySportLink} href='https://www.skysports.com/get-sky'>
                                 <Typography className={classes.link} >Get Sky Sports</Typography>
                             </a>
                         </Grid>

@@ -18,6 +18,19 @@ const useStyles = makeStyles({
         display: 'flex',
         flexDirection: 'column',
         paddingTop: '30px'
+    },
+    settingsText: {
+        paddingTop: '12px',
+    },
+    saveButton: {
+        margin: '20px 0 20px 0'
+    },
+    footerContainer: {
+        position: 'fixed',
+        bottom: 0,
+    },
+    container: {
+        paddingLeft: '8px'
     }
 });
 
@@ -32,8 +45,8 @@ export default function Index() {
     return (
         <>
             <Header />
-            <Grid container md={12} style={{ paddingLeft: '8px' }}>
-                <Typography style={{ paddingTop: '12px' }} variant='h4' >Settings</Typography>
+            <Grid container md={12} className={classes.container} >
+                <Typography className={classes.settingsText} variant='h4' >Settings</Typography>
                 <Grid item md={12}>
                     <Typography>Hello {userContext?.state.fields.userName} welcome to settings, here you can change your password and email</Typography>
                 </Grid>
@@ -50,11 +63,11 @@ export default function Index() {
                         <TextField className={classes.text} label='Confirm New Password' placeholder='Enter New Password' variant='outlined' />
                     </Grid>
                 </Grid>
-                <Grid style={{ margin: '20px 0 20px 8px' }} item md={12}>
+                <Grid className={classes.saveButton} item md={12}>
                     <Button onChange={handleChanges} variant="contained" color="primary" component="span">Save</Button>
                 </Grid>
             </Grid>
-            <Grid container md={12} style={{ position: 'fixed', bottom: 0 }}>
+            <Grid container md={12} className={classes.footerContainer}>
                 <Footer />
             </Grid>
         </>
