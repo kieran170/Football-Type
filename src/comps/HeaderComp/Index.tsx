@@ -8,6 +8,9 @@ const useStyles = makeStyles({
     link: {
         color: 'white',
         fontWeight: 'bold',
+        '@media (max-width: 1025px)' : {
+            width: '100%',
+        }
     },
     container: {
         display: 'flex',
@@ -15,6 +18,9 @@ const useStyles = makeStyles({
         alignItems: 'center',
         '&:hover': {
             backgroundColor: '#c30000'
+        },
+        '@media (max-width: 1025px)' : {
+            width: '100%',
         }
     },
     titleCon1: {
@@ -35,6 +41,10 @@ const useStyles = makeStyles({
     pageCon: {
         height: '100px',
         display: 'flex',
+        '@media (max-width: 1025px)' : {
+            display: 'inline-flex'
+        }
+        
     },
     headersItem: {
         diplay: 'inline-flex'

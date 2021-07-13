@@ -20,7 +20,7 @@ const useStyles = makeStyles({
         paddingTop: '30px'
     },
     settingsText: {
-        paddingTop: '12px',
+        paddingTop: '50px',
     },
     saveButton: {
         margin: '20px 0 20px 0'
@@ -28,9 +28,13 @@ const useStyles = makeStyles({
     footerContainer: {
         position: 'fixed',
         bottom: 0,
+        '@media (max-width: 1025px)' : {
+            position: 'absolute',
+            bottom: 'unset'
+        }
     },
     container: {
-        paddingLeft: '8px'
+        paddingLeft: '28px'
     }
 });
 

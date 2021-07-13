@@ -10,7 +10,10 @@ const useStyles = makeStyles(() => ({
     foot: {
         position: 'fixed',
         bottom: 0,
-
+        '@media (max-width: 1025px)' : {
+            bottom: '0',
+            position: 'unset'
+        }
     }
 }));
 
@@ -28,7 +31,7 @@ export default function Index() {
                 :
                 <StepComp />
             }
-            <Grid container md={12} className={favTeamNumber ? '' : classes.foot}>
+            <Grid container md={12} className={classes.foot}>
                 <Footer />
             </Grid>
 

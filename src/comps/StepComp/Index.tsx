@@ -22,7 +22,7 @@ const useStyles = makeStyles({
         margin: '40px 0 40px 0'
     },
     pageContainer: {
-        margin: '8px'
+        marginLeft: '20px'
     }
 });
 

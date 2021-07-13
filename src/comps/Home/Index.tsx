@@ -16,15 +16,25 @@ const useStyles = makeStyles((theme) => ({
         color: 'white',
         fontWeight: 1000,
         display: 'flex',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        '@media (max-width: 1025px)' : {
+            width: '100%',
+            textAlign: 'center'
+        }
     },
     pageContainer: {
         height: '100vh',
-        backgroundColor: '#3c3c3c'
+        backgroundColor: '#3c3c3c',
+        '@media (max-width: 1025px)' : {
+            width: '100%'
+        }
     },
     container: {
         display: 'flex',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        '@media (max-width: 1025px)' : {
+            width: '100%'
+        }
     },
     formContainer: {
         textAlign: 'center',
@@ -32,7 +42,10 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: 'rgb(100 100 255)',
         borderRadius: '10px',
         justifyContent: 'center',
-        marginTop: '5%'
+        marginTop: '5%',
+        '@media (max-width: 1025px)' : {
+            width: '100%'
+        }
     },
     select: {
         backgroundColor: 'white',
@@ -51,10 +64,16 @@ const useStyles = makeStyles((theme) => ({
         color: 'white'
     },
     image: {
-        height: '500px'
+        height: '500px',
+        '@media (max-width: 1025px)' : {
+            height: '250px'
+        }
     },
     padding: {
-        paddingTop: '25px'
+        paddingTop: '25px',
+        '@media (max-width: 1024px)' : {
+            width: '100%'
+        }
     }
 }));
 
@@ -130,7 +149,7 @@ export default function Index(): JSX.Element {
             setLogged(true)
             setTimeout(() => {
                 history.push('/home')
-            }, 5000)
+            }, 500)
         }
     }, [userContext?.state.logged, history])
 

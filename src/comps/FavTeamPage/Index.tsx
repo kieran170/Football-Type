@@ -12,30 +12,47 @@ const useStyles = makeStyles((theme) => ({
     formControl: {
         margin: theme.spacing(1),
         minWidth: 120,
+        
     },
     selectEmpty: {
         marginTop: theme.spacing(2),
+        '@media (max-width: 1025px)' : {
+            width: '100%'
+        }
     },
     title: {
         color: 'rgb(21, 55, 124)',
         transitionDuration: '1s',
         '&:hover': {
             color: 'rgb(215, 2, 2)'
+        },
+        '@media (max-width: 1025px)' : {
+            fontSize: '45px',
+            paddingTop: '30px'
         }
     },
     container: {
         backgroundColor: '#d2d0d7',
-        height: '100hv'
     },
     leagueContainer: {
         display: 'flex',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        '@media (max-width: 1025px)' : {
+            width: '100%',
+        }
     },
     titleHeader: {
-        textAlign: 'center'
+        textAlign: 'center',
+        padding: '30px'
     }, 
     scorersContainer: {
-        paddingTop: '30px'
+        paddingTop: '30px',
+        '@media (max-width: 1025px)' : {
+            width: '100%'
+        }
+    },
+    sidePadding: {
+        paddingLeft: '20px'
     }
 }));
 
@@ -100,7 +117,7 @@ export default function Index() {
                     <Grid item md={12} className={classes.titleHeader}>
                         <Typography className={classes.title} variant='h1'>{data?.competition.name.toUpperCase()}</Typography>
                     </Grid>
-                    <Grid item md={12} >
+                    <Grid item md={12} className={classes.sidePadding} >
                         <FormControl variant="filled" className={classes.formControl}>
                             <Typography>Show different league</Typography>
                             <Select

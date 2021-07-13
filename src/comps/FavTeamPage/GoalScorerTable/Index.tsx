@@ -12,19 +12,29 @@ interface IProps {
 
 const useStyles = makeStyles({
     table: {
-        minWidth: 650,
+        minWidth: 650
     },
     text: {
-        alignItems: 'center'
+        alignItems: 'center',
     },
     textCenter: {
-        textAlign: 'center'
+        textAlign: 'center',
+        padding: '30px 0 30px 0',
+        '@media (max-width: 1025px)' : {
+            width: '100%'
+        }
     },
     tableContainer: {
-        marginBottom: '30px'
+        marginBottom: '30px',
+        '@media (max-width: 1025px)' : {
+            width: '100%'
+        }
     }, 
     row: {
         padding: '18.5px',
+    },
+    rowHeaderText: {
+        fontWeight: 'bold'
     }
 });
 
@@ -52,10 +62,10 @@ export default function Index(props: IProps) {
                 <Typography variant='h4' className={classes.textCenter}>Top Scorers</Typography>
                 <Table className={classes.table} aria-label="simple table">
                     <TableHead>
-                        <TableRow>
-                            <TableCell >Name</TableCell>
-                            <TableCell className={classes.text} >Club</TableCell>
-                            <TableCell className={classes.text}>Goals Scored</TableCell>
+                        <TableRow >
+                            <TableCell className={classes.rowHeaderText} >Name</TableCell>
+                            <TableCell className={classes.rowHeaderText} >Club</TableCell>
+                            <TableCell className={classes.rowHeaderText}>Goals Scored</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>

@@ -20,7 +20,6 @@ const useStyles = makeStyles({
         backgroundColor: 'rgb(222, 221, 226)',
         bottom: 0,
         display: 'inline-flex'
-        
     }
 });
 

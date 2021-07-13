@@ -11,9 +11,11 @@ interface IProps {
 const useStyles = makeStyles({
     table: {
         minWidth: 450,
+
     },
     text: {
-        textAlign: 'center'
+        textAlign: 'center',
+        padding: '30px 0 30px 0',
     },
     row: {
         backgroundColor: 'white',
@@ -29,7 +31,14 @@ const useStyles = makeStyles({
     badgeImage: {
         height: '20px',
         paddingRight: '10px',
-    }
+    },
+    rowHeaderText: {
+        fontWeight: 'bold'
+    },
+    rowHeaderTextCenter: {
+        fontWeight: 'bold',
+        textAlign: 'center'
+    },
 });
 
 export default function Index(props: IProps) {
@@ -41,14 +50,14 @@ export default function Index(props: IProps) {
             <Table className={classes.table} aria-label="simple table">
                 <TableHead>
                     <TableRow>
-                        <TableCell>Position</TableCell>
-                        <TableCell >Team</TableCell>
-                        <TableCell className={classes.text}>Played</TableCell>
-                        <TableCell className={classes.text}>Won</TableCell>
-                        <TableCell className={classes.text}>Drawn</TableCell>
-                        <TableCell className={classes.text}>Lost</TableCell>
-                        <TableCell className={classes.text}>Goal Difference</TableCell>
-                        <TableCell className={classes.text} >Points</TableCell>
+                        <TableCell className={classes.rowHeaderText}>Position</TableCell>
+                        <TableCell className={classes.rowHeaderText}>Team</TableCell>
+                        <TableCell className={classes.rowHeaderTextCenter} >Played</TableCell>
+                        <TableCell className={classes.rowHeaderTextCenter} >Won</TableCell>
+                        <TableCell className={classes.rowHeaderTextCenter} >Drawn</TableCell>
+                        <TableCell className={classes.rowHeaderTextCenter} >Lost</TableCell>
+                        <TableCell className={classes.rowHeaderTextCenter} >Goal Difference</TableCell>
+                        <TableCell className={classes.rowHeaderTextCenter}  >Points</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>

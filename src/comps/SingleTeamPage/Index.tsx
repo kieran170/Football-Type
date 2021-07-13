@@ -19,7 +19,8 @@ const useStyles = makeStyles({
     container: {
         justifyContent: 'center',
         display: 'inline-flex',
-        alignItems: 'center'
+        alignItems: 'center',
+        paddingTop: '20px'
     },
     buttonContainer: {
         display: 'flex',
@@ -27,7 +28,12 @@ const useStyles = makeStyles({
         paddingRight: '20px'
     },
     header: {
-        textDecoration: 'underline'
+        textDecoration: 'underline',
+        '@media (max-width: 1025px)' : {
+            display: 'flex',
+            width: '100%',
+            justifyContent: 'space-evenly'
+        }
     },
     link: {
         color: 'black',
@@ -35,10 +41,17 @@ const useStyles = makeStyles({
     },
     dataTitle: {
         textDecoration: 'underline',
-        marginBottom: '20px'
+        marginBottom: '20px',
+        '@media (max-width: 1025px)' : {
+            paddingTop: '25px',
+        }
     },
     trophy: {
-        height: '50px'
+        height: '50px',
+        paddingTop: '40px',
+        '@media (max-width: 1025px)' : {
+            paddingTop: '25px',
+        }
     },
     teamDataContainer: {
         paddingLeft: '8px', 
@@ -49,21 +62,52 @@ const useStyles = makeStyles({
     },
     rosterSubHeadings: {
         paddingTop: '50px', 
-        paddingBottom: '43px'
+        paddingBottom: '43px',
+        '@media (max-width: 1025px)' : {
+            display: 'flex',
+            width: '100%',
+            justifyContent: 'space-evenly'
+        }
     },
     playerInfo: {
-        display: 'inline-flex'
+        display: 'inline-flex',
+        '@media (max-width: 1025px)' : {
+            display: 'flex',
+            width: '100%',
+            justifyContent: 'space-evenly'
+        }
     },
     fixtureTitle: {
         paddingBottom: '50px', 
-        textDecoration: 'underline'
+        textDecoration: 'underline',
+        '@media (max-width: 1025px)' : {
+            display: 'flex',
+            width: '100%',
+            justifyContent: 'space-evenly'
+        }
     },
     fixturesSubHeaders: {
         textDecoration: 'underline', 
-        paddingBottom: '43px'
+        paddingBottom: '43px',
+        '@media (max-width: 1025px)' : {
+            display: 'flex',
+            width: '100%',
+            justifyContent: 'space-evenly'
+        }
     },
     fixtures: {
         paddingBottom: '20px'
+    },
+    sidePadding: {
+        paddingLeft: '20px'
+    },
+    title: {
+        '@media (max-width: 1025px)' : {
+            fontSize: '40px',
+            paddingTop: '50px',
+            paddingLeft: '6px',
+            paddingBottom: '30px'
+        }
     }
 });
 
@@ -106,8 +150,9 @@ export default function Index() {
     return (
         <Grid container md={12}>
             <Header />
+            <Grid container md={12} className={classes.sidePadding}>
             <Grid className={classes.container} item md={12}>
-                <Typography variant='h2'>{data?.shortName.toUpperCase()}</Typography>
+                <Typography className={classes.title} variant='h1'>{data?.shortName.toUpperCase()}</Typography>
                 <img className={classes.trophy} src={data?.crestUrl} alt='club-badge' />
             </Grid>
             <Grid className={classes.buttonContainer} item md={12}>
@@ -212,6 +257,7 @@ export default function Index() {
                         })}
                     </Grid>
                 </Grid>
+            </Grid>
             </Grid>
             <Footer />
         </Grid >
