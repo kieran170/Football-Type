@@ -20,7 +20,7 @@ const useStyles = makeStyles({
     },
     header: {
         textDecoration: 'underline',
-        '@media (max-width: 1025px)' : {
+        '@media (max-width: 1025px)': {
             display: 'flex',
             width: '100%',
             justifyContent: 'space-evenly'
@@ -35,23 +35,22 @@ const useStyles = makeStyles({
         marginBottom: '20px'
     },
     trophy: {
-        height: '50px',
-        paddingTop: '40px',
-        '@media (max-width: 1025px)' : {
+        height: '75px',
+        '@media (max-width: 1025px)': {
             paddingTop: '25px',
         }
     },
     teamDataContainer: {
-        paddingLeft: '8px', 
+        paddingLeft: '8px',
         marginBottom: '50px'
     },
     mainItemContainer: {
         padding: '20px 0  0 8px'
     },
     rosterSubHeadings: {
-        paddingTop: '50px', 
+        paddingTop: '50px',
         paddingBottom: '43px',
-        '@media (max-width: 1025px)' : {
+        '@media (max-width: 1025px)': {
             display: 'flex',
             width: '100%',
             justifyContent: 'space-evenly'
@@ -59,25 +58,25 @@ const useStyles = makeStyles({
     },
     playerInfo: {
         display: 'inline-flex',
-        '@media (max-width: 1025px)' : {
+        '@media (max-width: 1025px)': {
             display: 'flex',
             width: '100%',
             justifyContent: 'space-evenly'
         }
     },
     fixtureTitle: {
-        paddingBottom: '50px', 
+        paddingBottom: '50px',
         textDecoration: 'underline',
-        '@media (max-width: 1025px)' : {
+        '@media (max-width: 1025px)': {
             display: 'flex',
             width: '100%',
             justifyContent: 'space-evenly'
         }
     },
     fixturesSubHeaders: {
-        textDecoration: 'underline', 
+        textDecoration: 'underline',
         paddingBottom: '43px',
-        '@media (max-width: 1025px)' : {
+        '@media (max-width: 1025px)': {
             display: 'flex',
             width: '100%',
             justifyContent: 'space-evenly'
@@ -90,7 +89,7 @@ const useStyles = makeStyles({
         paddingLeft: '20px'
     },
     title: {
-        '@media (max-width: 1025px)' : {
+        '@media (max-width: 1025px)': {
             fontSize: '40px',
             paddingTop: '50px',
             paddingLeft: '6px',

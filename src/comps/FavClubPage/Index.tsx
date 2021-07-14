@@ -8,9 +8,8 @@ import FavClubComp from '../FavClubComp/Index'
 
 const useStyles = makeStyles(() => ({
     foot: {
-        position: 'fixed',
         bottom: 0,
-        '@media (max-width: 1025px)' : {
+        '@media (max-width: 1025px)': {
             bottom: '0',
             position: 'unset'
         }

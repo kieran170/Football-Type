@@ -27,7 +27,7 @@ export default function Index() {
     const classes = useStyles();
     return (
         <Grid container md={12} className={classes.container}>
-            <Typography className={classes.linkContainer}>Kieran Cookson 2021</Typography>
+            <Typography className={classes.linkContainer}>Kieran Cookson 2021 V1.0</Typography>
             <Grid className={classes.linkContainer}>
                 <a className={classes.link} href='https://www.linkedin.com/in/kieran-cookson/' target='blank'>
                     <LinkedInIcon />

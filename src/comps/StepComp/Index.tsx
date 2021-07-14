@@ -1,7 +1,6 @@
 import React from 'react';
-import { Grid, Typography, makeStyles } from '@material-ui/core'
+import { Grid, Typography, makeStyles } from '@material-ui/core';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
-import Step1 from '../../assets/Screenshot 2021-07-10 at 11.43.16.png';
 import Step2 from '../../assets/Screenshot 2021-07-10 at 11.46.57.png';
 import Step3 from '../../assets/Screenshot 2021-07-10 at 11.50.55.png';
 import Step4 from '../../assets/Screenshot 2021-07-10 at 14.11.59.png';
@@ -17,6 +16,8 @@ const useStyles = makeStyles({
     title: {
         display: 'flex',
         justifyContent: 'center',
+        paddingTop: '30px',
+        paddingBottom: '60px'
     },
     margin: {
         margin: '40px 0 40px 0'
@@ -33,17 +34,14 @@ export default function Index() {
             <Grid className={classes.title} item md={12}>
                 <Typography variant='h3'>No Favorite Team Picked</Typography>
             </Grid>
-            <Grid item md={12} className={classes.margin}>
-                <Typography>Please Select a Favorite Team <Link to='home'>Here</Link></Typography>
-            </Grid>
             <Grid container md={12}>
                 <Grid item md={3}>
                     <Grid item md={12} className={classes.stepContainer}>
                         <Typography>Step 1</Typography>
                         <ArrowRightAltIcon />
                     </Grid>
-                    <Grid item md={12}>
-                        <img className={classes.image} src={Step1} alt='step 1' />
+                    <Grid item md={12} className={classes.margin}>
+                        <Typography>Please Select a Favorite Team By Clicking Back The Home Page <Link to='home'>Here</Link></Typography>
                     </Grid>
                 </Grid>
                 <Grid item md={3}>
