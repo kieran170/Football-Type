@@ -56,7 +56,7 @@ export const getTeamFixtures = (team_id: string) => {
 export const getLeagueFixtures = (leagueNum: string, matchday: string) => {
   return axios
   .get(
-    `http://api.football-data.org/v2/competitions/${leagueNum}/matches?matchday=${matchday}`,
+    `https://api.football-data.org/v2/competitions/${leagueNum}/matches?matchday=${matchday}`,
     {
       headers: { "X-Auth-Token": APIKEY },
     }
