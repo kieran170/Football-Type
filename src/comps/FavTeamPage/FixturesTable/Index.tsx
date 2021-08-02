@@ -45,9 +45,12 @@ export default function Index(props: IProps) {
     useEffect(() => {
         if (typeof country === 'string' && typeof matchday === 'number'){
             const newMatchday = matchday.toString()
-            api.getLeagueFixtures(country, newMatchday).then((res) => setFixtures(res.matches))
+            api.getLeagueFixtures(country, newMatchday).then((res) => {
+                setFixtures(res.matches)
+            })
         }
-    })
+    }, [country, matchday])
+
 
     return (
             <TableContainer component={Paper} className={classes.tableContainer}>
@@ -55,16 +58,20 @@ export default function Index(props: IProps) {
                 <Table className={classes.table} aria-label="simple table">
                     <TableHead>
                         <TableRow >
+                            <TableCell className={classes.rowHeaderText} >Date</TableCell>
                             <TableCell className={classes.rowHeaderText} >Home</TableCell>
                             <TableCell className={classes.rowHeaderText} >Away</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                     {fixtures.map((item) => (
-                            <TableRow  key={item.id}>
-                                <TableCell className={classes.row} >{item.homeTeam.name}</TableCell>
-                                <TableCell className={classes.text}>{item.awayTeam.name}</TableCell>
-                            </TableRow>
+                            <>
+                                <TableRow  key={item.id}>
+                                    <TableCell className={classes.row} >{new Date(item.utcDate).toString().slice(0, 21)}</TableCell>
+                                    <TableCell className={classes.row} >{item.homeTeam.name}</TableCell>
+                                    <TableCell className={classes.text}>{item.awayTeam.name}</TableCell>
+                                </TableRow>
+                            </>
                         ))}
                     </TableBody>
                 </Table>
