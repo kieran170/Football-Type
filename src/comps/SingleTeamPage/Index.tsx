@@ -141,6 +141,7 @@ export default function Index() {
         const getTeamFixtures = () => {
             return api.getTeamFixtures(team_id)
                 .then((res) => {
+                    console.log(res.matches)
                     setFixtures(res.matches)
                 })
         }

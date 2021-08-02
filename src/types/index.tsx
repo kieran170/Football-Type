@@ -40,6 +40,7 @@ export interface dataApi {
         startDate: string;
         endDate: string;
         winner: null | string;
+        currentMatchday: number;
     };
     standings: [
         {

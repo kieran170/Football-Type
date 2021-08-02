@@ -7,7 +7,7 @@ import { scorersApi } from '../../../types/scorersTypes'
 
 interface IProps {
     data: Itable[];
-    country: string | null | undefined;
+    country?: string | null ;
 }
 
 const useStyles = makeStyles({

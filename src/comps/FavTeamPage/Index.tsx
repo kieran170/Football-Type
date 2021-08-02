@@ -1,12 +1,13 @@
 import { Typography, Grid, FormControl, Select, MenuItem, makeStyles } from '@material-ui/core'
 import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../context';
-import Header from '../HeaderComp/Index'
-import * as api from '../../api'
-import { dataApi, lookup, standings, Itable } from '../../types/index'
-import LeagueTable from './LeagueTable/Index'
-import GoalScorerTable from './GoalScorerTable/Index'
-import Footer from '../Footer/Index'
+import Header from '../HeaderComp/Index';
+import * as api from '../../api';
+import { dataApi, lookup, standings, Itable } from '../../types/index';
+import LeagueTable from './LeagueTable/Index';
+import GoalScorerTable from './GoalScorerTable/Index';
+import Footer from '../Footer/Index';
+import FixturesTable from './FixturesTable/Index'
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -142,7 +143,9 @@ export default function Index() {
                         <Grid md={9} className={classes.scorersContainer} >
                             <GoalScorerTable country={leagueNum} data={teams} />
                         </Grid>
-
+                        <Grid md={9} className={classes.scorersContainer}>
+                            <FixturesTable country={leagueNum} matchday={data?.season.currentMatchday}/>
+                        </Grid>
                     </Grid>
                 </Grid>
             </Grid>

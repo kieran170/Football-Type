@@ -1,11 +1,12 @@
 import axios from "axios";
+import {APIKEY} from './secerts'
 
 export const getLeagues = (nation: string) => {
   return axios
     .get(
       `https://api.football-data.org/v2/competitions/${nation}/standings`,
       {
-        headers: { "X-Auth-Token": "bb5c9f0b8e1a442ea833002ce9111d90" },
+        headers: { "X-Auth-Token": APIKEY },
       }
     )
     .then(({ data }) => {
@@ -18,7 +19,7 @@ export const getGoalScorers = (nation: string) => {
     .get(
       `https://api.football-data.org/v2/competitions/${nation}/scorers`,
       {
-        headers: { "X-Auth-Token": "bb5c9f0b8e1a442ea833002ce9111d90" },
+        headers: { "X-Auth-Token": APIKEY },
       }
     )
     .then(({ data }) => {
@@ -31,7 +32,7 @@ export const getTeamData = (team_id: string) => {
     .get(
       `https://api.football-data.org/v2/teams/${team_id}`,
       {
-        headers: { "X-Auth-Token": "bb5c9f0b8e1a442ea833002ce9111d90" },
+        headers: { "X-Auth-Token": APIKEY },
       }
     )
     .then(({ data }) => {
@@ -44,10 +45,23 @@ export const getTeamFixtures = (team_id: string) => {
     .get(
       `https://api.football-data.org//v2/teams/${team_id}/matches`,
       {
-        headers: { "X-Auth-Token": "bb5c9f0b8e1a442ea833002ce9111d90" },
+        headers: { "X-Auth-Token": APIKEY },
       }
     )
     .then(({ data }) => {
       return data;
     })
 };
+
+export const getLeagueFixtures = (leagueNum: string, matchday: string) => {
+  return axios
+  .get(
+    `http://api.football-data.org/v2/competitions/${leagueNum}/matches?matchday=${matchday}`,
+    {
+      headers: { "X-Auth-Token": APIKEY },
+    }
+  )
+  .then(({ data }) => {
+    return data;
+  })
+}
